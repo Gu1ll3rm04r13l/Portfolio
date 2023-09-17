@@ -2,17 +2,18 @@
 export const data = [
     {
         id: 1,
-        img: 'https://i.postimg.cc/VkRWdHWx/57214s81.jpg',
-        title: "Entregable Front",
+        // img: 'https://i.postimg.cc/mk834zL6/Untitled.jpg', Dark Theme Image
+        img: 'https://i.postimg.cc/sXKGQkkM/Untitled.jpg',
+        title: "Final Frontend 3",
         desc: "",
-        link: "",
-        git: "",
+        link: "https://final-front-end3-two.vercel.app",
+        git: "https://github.com/Gu1ll3rm04r13l/FinalFrontEnd3",
     },
     {
         id: 2,
         img: 'https://i.postimg.cc/dQxcsZ56/To-Do.jpg',
         title: "ToDo-App Initial Template",
-        link: "",
+        link: "https://to-do-app-template-inicial.vercel.app",
         git: "https://github.com/Gu1ll3rm04r13l/ToDo-App-template-inicial",
     },
     {
