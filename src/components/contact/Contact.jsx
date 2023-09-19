@@ -9,10 +9,10 @@ const Contact = () => {
       <div
         // data-aos="fade-up"
         className="relative mb-5">
-        <h3 className=" text-3xl font-black text-gray-400 sm:text-2xl">
+        <h3 className=" text-3xl font-black text-black sm:text-2xl">
           Contact
         </h3>
-        <span className="h-[1.1px] right-0 absolute w-[92%] bg-gray-300 block"></span>
+        <span className="h-[1.1px] right-0 absolute w-[92%] bg-black block"></span>
       </div>
 
       {/* card*/}
@@ -33,7 +33,7 @@ const Contact = () => {
 
               data-aos="zoom-in"
 
-              className=" text-yellow-500 font-extrabold text-3xl p-2 rounded-lg shadow-[0_0_10px_1px_rgba(0,0,0,0.1)] "
+              className=" text-purple-700 font-extrabold text-3xl p-2 rounded-lg shadow-[0_0_10px_1px_rgba(0,0,0,0.1)] "
             >
               <BsArrowRight className=" md:rotate-90" />
             </button>
@@ -68,7 +68,7 @@ const Contact = () => {
               id=""
             />
             <button
-              className="bg-yellow-500 w-full text-white font-semibold  p-2 rounded-lg flex items-center justify-center space-x-1"
+              className="bg-purple-500 w-full text-white font-semibold  p-2 rounded-lg flex items-center justify-center space-x-1 "
               type="submit"
             >
               <span>Send</span>

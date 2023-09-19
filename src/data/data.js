@@ -13,6 +13,7 @@ export const data = [
         id: 2,
         img: 'https://i.postimg.cc/dQxcsZ56/To-Do.jpg',
         title: "ToDo-App Initial Template",
+        desc: "",
         link: "https://to-do-app-template-inicial.vercel.app",
         git: "https://github.com/Gu1ll3rm04r13l/ToDo-App-template-inicial",
     },

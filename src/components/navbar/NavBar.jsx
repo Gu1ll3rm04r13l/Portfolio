@@ -52,7 +52,7 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
   return (
     <div
       className={`w-full mx-auto  fixed top-0 py-5 sm:py-4 z-30 ${
-        scrollPosition > 0 ? `bg-white shadow-md` : "bg-transparent"
+        scrollPosition > 0 ? `bg-gradient-to-r from-purple-400  to-red-500 shadow-md` : "bg-transparent"
       } `}
     >
       <nav className=" container m-auto flex items-center justify-between">
@@ -97,8 +97,8 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
                 <a
                   onClick={() => toggleNav(item.name)}
                   href={`#${item.name}`}
-                  className={`uppercase cursor-pointer text-black hover:text-yellow-600 font-bold ${
-                    item.name === activeIndex ? "text-yellow-600" : ""
+                  className={`uppercase cursor-pointer text-black hover:text-purple-300 font-bold ${
+                    item.name === activeIndex ? "text-purple-600" : ""
                   }`}
                 >
                   {item.name}
@@ -107,7 +107,7 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
             ))}
             <a
               href="https://www.linkedin.com/in/guillermo-ariel-del-fresno/"
-              className="bg-black text-[1rem] text-white px-8 py-2 rounded-lg font-bold hover:text-yellow-400 md:m-5 md:block md:mx-auto md:w-fit lg:px-3"
+              className="bg-black text-[1rem] text-white px-8 py-2 rounded-lg font-bold hover:text-purple-400 md:m-5 md:block md:mx-auto md:w-fit lg:px-3"
             >
               HIRE ME
             </a>

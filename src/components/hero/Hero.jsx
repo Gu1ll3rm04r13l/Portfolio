@@ -13,7 +13,8 @@ import resumePDF from "../../assets/Resume.pdf";
 
 const Hero = () => {
   return (
-    <div id="home" className={` bg-gradient-to-r from-green-200 to-blue-200 `}>
+    // <div id="home" className={` bg-gradient-to-r from-green-200 to-blue-200 `}>
+    <div id="home" className={` bg-gradient-to-r from-purple-400 to-red-500`}>
       <div className=" container mx-auto pt-5 h-[750px] md:h-[100vh] md:flex-col-reverse sm:h-[780px]  flex sm:flex-col-reverse sm:pt-0 ">
         <div className=" left mt-4 md:mt-0 flex-1 flex flex-col justify-center gap-5 w-1/2 md:w-full md:py-2 sm:py-0">
           <div className="info w-fit flex flex-col items-start justify-center gap-3 sm:gap-2">
@@ -32,28 +33,29 @@ const Hero = () => {
                 2000,
                 "",
               ]}
-              speed={30}
+              speed={40}
               wrapper="h2"
               repeat={Infinity}
-              className="text-yellow-500 text-4xl font-bold sm:text-3xl"
+              // className="text-yellow-500 text-4xl font-bold sm:text-3xl"
+              className="text-red-600 text-4xl font-bold sm:text-3xl"
             />
             <p
               // data-aos="fade-up"
-              className=" text-[1.1rem] font-medium w-3/4 md:w-full text-gray-600 sm:text-[.95rem]"
+              className=" text-[1.1rem] font-medium w-3/4 md:w-full text-white sm:text-[.95rem]"
             >
               I'm an undergraduate student at Digital House.
             </p>
           </div>
           <div data-aos="fade-up" className="buttons flex gap-5">
             <a
-              href=""
-              className=" bg-black text-[1rem] text-white px-10 py-2 sm:px-8 rounded-lg font-bold  hover:text-yellow-500"
+              href="https://www.linkedin.com/in/guillermo-ariel-del-fresno/"
+              className=" bg-black text-[1rem] text-white px-10 py-2 sm:px-8 rounded-lg font-bold  hover:text-red-600"
             >
               <span> Hire Me</span>
             </a>
             <a
               href={resumePDF}
-              className="flex items-center gap-2 border- text-[1rem] bg-white border-black px-7 py-2 sm:px-6 rounded-lg font-bold  hover:text-yellow-500"
+              className=" flex items-center gap-2 border- text-[1rem] bg-white border-black px-7 py-2 sm:px-6 rounded-lg font-bold  hover:text-purple-700"
               download
             >
               <div className="flex items-center gap-1">
@@ -103,14 +105,14 @@ const Hero = () => {
         <div className="right  top-5 flex-1 flex items-center justify-center md:items-end sm:items-end">
           <div className="relative h-[88%] w-fit flex items-center sm:items-end">
             <img
-            data-aos="fade-up"
+              data-aos="fade-up"
               className=" h-[80%] rounded-full  w-full object-cover md:h-[95%] md:m-auto sm:m-0"
               src='https://i.postimg.cc/kGX73MH6/ARIEL-ROJO.png'
               // src={mine}
               alt="mine"
             />
             <div className=" absolute bottom-10 md:bottom-3 right-8 md:right-2">
-              <div data-aos="zoom-in" data-aos-duration="1000"  className=" relative cursor-pointer">
+              <div data-aos="zoom-in" data-aos-duration="1000" className=" relative cursor-pointer">
                 <img
                   className=" w-[135px] md:w-[90px] circle-text"
                   src="https://ik.imagekit.io/imgkitt/tr:w-400/Full_Stack_Developer2.png?updatedAt=1683134009107"

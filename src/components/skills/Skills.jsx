@@ -18,21 +18,23 @@ import { IoLogoNodejs } from "react-icons/io";
 
 const Skills = ({ darkMode }) => {
   return (
-    <div id="skills">
-      <div className=" container m-auto  mt-16">
+    <div id="skills ">
+      <div className="container m-auto  mt-16">
         {/* heading */}
         <div data-aos="fade-up" className="relative mb-5">
-          <h3 className=" text-3xl font-black text-gray-400 sm:text-2xl">
+          {/* <h3 className=" text-3xl font-black text-gray-400 sm:text-2xl"> */}
+          <h3 className=" text-3xl font-black text-black sm:text-2xl">
             My Skills
           </h3>
-          <span className="h-[1.1px] right-0 absolute w-[90%] bg-gray-300 block"></span>
+          <span className="h-[1.1px] right-0 absolute w-[90%] bg-black block"></span>
         </div>
         {/* content*/}
         <div className="flex md:flex-col ">
           <div className="left flex-1 w-full">
             <p
               data-aos="fade-up"
-              className=" text-gray-700 font-medium w-[100%]"
+              // className=" text-gray-700 font-medium w-[100%]"
+              className=" text-black font-medium w-[100%]"
             >
               Here are my skills.
             </p>
