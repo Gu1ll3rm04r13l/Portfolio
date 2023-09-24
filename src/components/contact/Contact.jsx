@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useRef } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
+import emailjs from '@emailjs/browser';
+// import React, { useRef } from 'react';
+// import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+
+  const form = useRef();
+
+  var templateParams = {
+    to_name: 'Ariel',
+    notes: 'Check this out!'
+};
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      'service_iw6lx57',
+      'template_8q9csaf',
+      form.current,
+      'KEttemTMTZI7rbx-f'
+      )
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+  };
+
   return (
     <div id="contact" className="container m-auto mt-16">
       {/* heading */}
@@ -41,9 +68,9 @@ const Contact = () => {
         </div>
         <div className="right flex-1">
           <form
-
+            ref={form} 
+            onSubmit={sendEmail}
             data-aos="zoom-in"
-
             className="flex justify-center items-center flex-col gap-5 w-[70%] md:w-[100%] sm:w-[95%] mx-auto"
             action="mailto:arieldelfresno2690@gmail.com"
           >
@@ -51,20 +78,20 @@ const Contact = () => {
               className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
               type="email"
               placeholder="e.g. example@gmail.com"
-              name=""
+              name="reply_to"
             />
             <input
               className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
               type="text"
               placeholder="e.g. Ariel del Fresno"
-              name=""
+              name="from_name"
             />
             <textarea
               className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
               rows="4"
               cols="50"
               placeholder="Write your message"
-              name=""
+              name="message"
               id=""
             />
             <button
@@ -82,3 +109,36 @@ const Contact = () => {
 };
 
 export default Contact;
+
+// import React, { useRef } from 'react';
+// import emailjs from '@emailjs/browser';
+
+// export const Contact = () => {
+//   const form = useRef();
+
+//   const sendEmail = (e) => {
+//     e.preventDefault();
+
+//     emailjs.sendForm('service_iw6lx57', 'template_8q9csaf', form.current, 'KEttemTMTZI7rbx-f')
+//       .then((result) => {
+//         console.log(result.text);
+//       }, (error) => {
+//         console.log(error.text);
+//       });
+//   };
+
+//   return (
+    
+//     <form ref={form} onSubmit={sendEmail}>
+//       <label>Name</label>
+//       <input type="text" name="user_name" />
+//       <label>Email</label>
+//       <input type="email" name="user_email" />
+//       <label>Message</label>
+//       <textarea name="message" />
+//       <input type="submit" value="Send" />
+//     </form>
+//   );
+// };
+
+// export default Contact

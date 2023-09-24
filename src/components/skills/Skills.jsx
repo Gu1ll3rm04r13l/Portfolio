@@ -1,7 +1,6 @@
 import React from "react";
 import ProgressBar from "../../chip/ProgressBar";
 import SkillBox from "../../chip/SkillBox";
-
 import { IoLogoHtml5, IoLogoCss3 } from "react-icons/io";
 
 
@@ -108,7 +107,7 @@ const Skills = ({ darkMode }) => {
             width="48"
             height="48"
             alt="html-5"
-            lassName="mr-2"
+            className="mr-2"
           />
           <img
             src="https://img.icons8.com/fluency/48/000000/css3.png"
