@@ -8,10 +8,8 @@ import {
   SiJavascript,
   SiTailwindcss,
   SiMongodb,
-  // SiExpress,
 } from "react-icons/si";
 import { GrCode } from "react-icons/gr";
-// import { SiNextdotjs } from "react-icons/si";
 import { FaReact, FaDocker } from "react-icons/fa";
 import { IoLogoNodejs } from "react-icons/io";
 
@@ -21,7 +19,6 @@ const Skills = ({ darkMode }) => {
       <div className="container m-auto  mt-16">
         {/* heading */}
         <div data-aos="fade-up" className="relative mb-5">
-          {/* <h3 className=" text-3xl font-black text-gray-400 sm:text-2xl"> */}
           <h3 className=" text-3xl font-black text-black sm:text-2xl">
             My Skills
           </h3>
@@ -35,7 +32,6 @@ const Skills = ({ darkMode }) => {
           <div className="left flex-1 w-full">
             <p
               data-aos="fade-up"
-              // className=" text-gray-700 font-medium w-[100%]"
               className=" text-black font-medium w-[100%]"
             >
               Here are my skills.
@@ -81,7 +77,6 @@ const Skills = ({ darkMode }) => {
             </div>
             <div className="last2 flex flex-col gap-10">
               <SkillBox
-                //logo={<SiExpress />}
                 logo={<FaDocker />}
                 black={"black"}
                 white={"white"}
@@ -100,7 +95,6 @@ const Skills = ({ darkMode }) => {
             </div>
           </div>
         </div>
-        {/* <div className="flex justify-evenly"> */}
         <div className="flex ml-44">
           <img
             src="https://img.icons8.com/fluency/48/html-5.png"
@@ -156,7 +150,6 @@ const Skills = ({ darkMode }) => {
             width="50"
           />
         </div>
-        {/* </div> */}
       </div>
     </div>
   );
