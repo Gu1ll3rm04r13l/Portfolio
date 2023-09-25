@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
 import emailjs from '@emailjs/browser';
@@ -9,10 +9,7 @@ const Contact = () => {
 
   const form = useRef();
 
-  var templateParams = {
-    to_name: 'Ariel',
-    notes: 'Check this out!'
-};
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -22,13 +19,23 @@ const Contact = () => {
       'template_8q9csaf',
       form.current,
       'KEttemTMTZI7rbx-f'
-      )
+    )
       .then((result) => {
         console.log(result.text);
+        setIsFormSubmitted(true);
       }, (error) => {
         console.log(error.text);
       });
   };
+
+
+  useEffect (() =>{
+    if(isFormSubmitted) {
+      setTimeout(() => {
+        setIsFormSubmitted(false);
+      },"3000");
+    }
+  },[isFormSubmitted])
 
   return (
     <div id="contact" className="container m-auto mt-16">
@@ -68,7 +75,7 @@ const Contact = () => {
         </div>
         <div className="right flex-1">
           <form
-            ref={form} 
+            ref={form}
             onSubmit={sendEmail}
             data-aos="zoom-in"
             className="flex justify-center items-center flex-col gap-5 w-[70%] md:w-[100%] sm:w-[95%] mx-auto"
@@ -95,11 +102,12 @@ const Contact = () => {
               id=""
             />
             <button
-              className="bg-purple-500 w-full text-white font-semibold  p-2 rounded-lg flex items-center justify-center space-x-1 "
+              className={`bg-purple-500 w-full text-white font-semibold p-2 rounded-lg flex items-center justify-center space-x-1 ${isFormSubmitted ? 'bg-green-500' : '' // Agrega una clase de estilo cuando isFormSubmitted es true
+                }`}
               type="submit"
             >
-              <span>Send</span>
-              <RiSendPlaneFill />
+              <span>{isFormSubmitted ? 'Sent' : 'Send'}</span>
+              {isFormSubmitted ? " " : <RiSendPlaneFill />}
             </button>
           </form>
         </div>
