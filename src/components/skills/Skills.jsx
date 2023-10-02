@@ -95,7 +95,7 @@ const Skills = ({ darkMode }) => {
             </div>
           </div>
         </div>
-        <div className="flex ml-44">
+        <div className="flex sm:flex-wrap ml-44 xl:ml-0">
           <img
             src="https://img.icons8.com/fluency/48/html-5.png"
             width="48"
