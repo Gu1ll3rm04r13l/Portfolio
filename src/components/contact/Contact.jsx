@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
 import emailjs from '@emailjs/browser';
-// import React, { useRef } from 'react';
-// import emailjs from '@emailjs/browser';
 
 const Contact = () => {
 
@@ -29,19 +27,18 @@ const Contact = () => {
   };
 
 
-  useEffect (() =>{
-    if(isFormSubmitted) {
+  useEffect(() => {
+    if (isFormSubmitted) {
       setTimeout(() => {
         setIsFormSubmitted(false);
-      },"3000");
+      }, "3000");
     }
-  },[isFormSubmitted])
+  }, [isFormSubmitted])
 
   return (
     <div id="contact" className="container m-auto mt-16">
       {/* heading */}
       <div
-        // data-aos="fade-up"
         className="relative mb-5">
         <h3 className=" text-3xl font-black text-black sm:text-2xl">
           Contact
@@ -102,8 +99,7 @@ const Contact = () => {
               id=""
             />
             <button
-              className={`bg-purple-500 w-full text-white font-semibold p-2 rounded-lg flex items-center justify-center space-x-1 ${isFormSubmitted ? 'bg-green-500' : '' // Agrega una clase de estilo cuando isFormSubmitted es true
-                }`}
+              className={`bg-purple-500 w-full text-white font-semibold p-2 rounded-lg flex items-center justify-center space-x-1 ${isFormSubmitted ? 'bg-green-500' : ''}`}
               type="submit"
             >
               <span>{isFormSubmitted ? 'Sent' : 'Send'}</span>
