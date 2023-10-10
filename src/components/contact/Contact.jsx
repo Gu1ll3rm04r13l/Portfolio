@@ -12,6 +12,15 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
+    const email = form.current.reply_to.value;
+    const name = form.current.from_name.value;
+    const message = form.current.message.value;
+
+    if (!email || !name || !message) {
+      alert("Por favor, complete todos los campos antes de enviar.");
+      return;
+    }
+
     emailjs.sendForm(
       'service_iw6lx57',
       'template_8q9csaf',
@@ -31,6 +40,9 @@ const Contact = () => {
     if (isFormSubmitted) {
       setTimeout(() => {
         setIsFormSubmitted(false);
+        form.current.reply_to.value = '';
+        form.current.from_name.value = '';
+        form.current.message.value = '';
       }, "3000");
     }
   }, [isFormSubmitted])
@@ -99,7 +111,7 @@ const Contact = () => {
               id=""
             />
             <button
-              className={`bg-purple-500 w-full text-white font-semibold p-2 rounded-lg flex items-center justify-center space-x-1 ${isFormSubmitted ? 'bg-green-500' : ''}`}
+              className={`bg-purple-500 w-full text-white font-semibold p-2 rounded-lg flex items-center justify-center space-x-1 ${isFormSubmitted ? 'bg-green-600' : ''}`}
               type="submit"
             >
               <span>{isFormSubmitted ? 'Sent' : 'Send'}</span>
