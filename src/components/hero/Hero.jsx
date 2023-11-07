@@ -9,6 +9,7 @@ import { FiDownload } from "react-icons/fi";
 import { FaPlay } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
 import resumePDF from "../../assets/CV - del Fresno Guillermo Ariel.pdf";
+import ARIEL_ROJO from "../../assets/ARIEL_ROJO.png";
 
 
 const Hero = () => {
@@ -105,8 +106,8 @@ const Hero = () => {
             <img
               data-aos="fade-up"
               className=" h-[80%] rounded-full  w-full object-cover md:h-[95%] md:m-auto sm:m-0"
-              src='https://i.postimg.cc/kGX73MH6/ARIEL-ROJO.png'
-              // src={mine}
+              // src='ARIEL_ROJO.png'
+              src={ARIEL_ROJO}
               alt="mine"
             />
             <div className=" absolute bottom-10 md:bottom-3 right-8 md:right-2">

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
 import emailjs from '@emailjs/browser';
+import SendButton from "./Sendbutton";
 
 const Contact = () => {
 
@@ -110,13 +111,14 @@ const Contact = () => {
               name="message"
               id=""
             />
-            <button
+            {/* <button
               className={`bg-purple-500 w-full text-white font-semibold p-2 rounded-lg flex items-center justify-center space-x-1 ${isFormSubmitted ? 'bg-green-600' : ''}`}
               type="submit"
             >
               <span>{isFormSubmitted ? 'Sent' : 'Send'}</span>
               {isFormSubmitted ? " " : <RiSendPlaneFill />}
-            </button>
+            </button> */}
+            <SendButton/>
           </form>
         </div>
       </div>
@@ -125,3 +127,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
