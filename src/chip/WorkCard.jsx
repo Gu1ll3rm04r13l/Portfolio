@@ -22,7 +22,7 @@ const WorkCard = () => {
                 <img
                   src={data.img}
                   alt={data.title}
-                  className=" object-fit w-full h-full hover:scale-125 transition duration-500 cursor-pointer"
+                  className=" object-cover w-full h-full hover:scale-125 transition duration-500 cursor-pointer"
                 />
               </div>
 
@@ -33,14 +33,14 @@ const WorkCard = () => {
                   {data.desc}
                 </p>
                 <div className=" flex items-center justify-center gap-4">
-                  <Link
+                  {/* <Link
                     to={data.link}
                     target="_blank"
                     className="  mt-3 rounded-md shadow-md p-1 px-2 flex gap-2 items-center justify-center font-medium"
                   >
                     <RxExternalLink className=" text-black bg-white rounded-full border  w-[35px] h-[35px] p-2" />
                     <p className=" text-black">Demo</p>
-                  </Link>
+                  </Link> */}
                   <br className="w-[2px] bg-white" />
                   <Link
                     to={data.git}

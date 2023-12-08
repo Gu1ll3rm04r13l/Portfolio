@@ -1,7 +1,9 @@
 
+import ff4 from "../assets/TPIMG.png"
 import ff3 from "../assets/FF3.png"
 import ff2 from "../assets/FF2.png"
 import ff1 from "../assets/FF1.png"
+
 
 export const data = [
     {
@@ -29,6 +31,14 @@ export const data = [
         desc: "",
         link: "",
         git: "https://github.com/Gu1ll3rm04r13l/FinalFront1",
+    },
+    {
+        id: 4,
+        img: ff4,
+        title: "Proyecto Integrador",
+        desc: "",
+        link: "",
+        git: "https://github.com/Gu1ll3rm04r13l/Proyecto-Integrador",
     }
 
 ];
