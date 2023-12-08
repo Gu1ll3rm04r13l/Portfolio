@@ -23,7 +23,8 @@ export const data = [
     },
     {
         id: 3,
-        img: ff1,
+        // img: ff1,
+        img:'../assets/ff1.png',
         title: "Final Frontend",
         desc: "",
         link: "",
