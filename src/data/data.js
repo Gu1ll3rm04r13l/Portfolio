@@ -1,6 +1,6 @@
 
-import ff3 from '../assets/ff3.png'
-import ff2 from '../assets/ff2.png'
+import ff3 from "../assets/ff3.png"
+import ff2 from "../assets/ff2.png"
 import ff1 from "../assets/ff1.png"
 
 export const data = [
