@@ -1,7 +1,7 @@
 
 import ff3 from '../assets/ff3.png'
 import ff2 from '../assets/ff2.png'
-import ff1 from '../assets/ff1.png'
+import ff1 from "../assets/ff1.png"
 
 export const data = [
     {
@@ -23,8 +23,8 @@ export const data = [
     },
     {
         id: 3,
-        // img: ff1,
-        img:'../assets/ff1.png',
+        img: ff1,
+        // img:'../assets/ff1.png',
         title: "Final Frontend",
         desc: "",
         link: "",
