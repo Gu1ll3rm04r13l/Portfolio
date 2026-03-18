@@ -1,157 +1,63 @@
 import React from "react";
-import ProgressBar from "../../chip/ProgressBar";
-import SkillBox from "../../chip/SkillBox";
-import { IoLogoHtml5, IoLogoCss3 } from "react-icons/io";
+import { IoLogoHtml5, IoLogoCss3, IoLogoNodejs } from "react-icons/io";
+import { SiJavascript, SiTailwindcss, SiMongodb, SiCplusplus, SiTypescript, SiMysql } from "react-icons/si";
+import { FaReact, FaDocker, FaJava } from "react-icons/fa";
 
 
-import {
-  SiJavascript,
-  SiTailwindcss,
-  SiMongodb,
-} from "react-icons/si";
-import { GrCode } from "react-icons/gr";
-import { FaReact, FaDocker } from "react-icons/fa";
-import { IoLogoNodejs } from "react-icons/io";
+const SkillCard = ({ icon, name, colorClass }) => (
+  <div 
+    data-aos="zoom-in"
+    className="flex flex-col items-center justify-center p-6 bg-white shadow-sm rounded-xl border border-gray-100 hover:shadow-md transition-all duration-300 group"
+  >
+    <div className={`text-5xl mb-4 transition-transform duration-300 group-hover:scale-110 ${colorClass}`}>
+      {icon}
+    </div>
+    <span className="text-sm font-semibold text-gray-700 tracking-wide uppercase">
+      {name}
+    </span>
+  </div>
+);
 
-const Skills = ({ darkMode }) => {
+const Skills = () => {
   return (
-    <div id="skills ">
-      <div className="container m-auto  mt-16">
-        {/* heading */}
-        <div data-aos="fade-up" className="relative mb-5">
-          <h3 className=" text-3xl font-black text-black sm:text-2xl">
+    <section id="skills" className="py-20 bg-gray-50">
+      <div className="container m-auto px-4">
+        
+        {/* Encabezado Seccion */}
+        <div data-aos="fade-up" className="relative mb-12 flex flex-col items-center">
+          <h3 className="text-4xl font-black text-gray-900 mb-2">
             My Skills
           </h3>
-
-          <span className="h-[1.1px] right-0 absolute w-[90%] bg-black block"></span>
+          <div className="h-1 w-20 bg-black rounded-full"></div>
+          <p className="mt-4 text-gray-600 font-medium text-center max-w-lg">
+            Stack tecnológico enfocado en el desarrollo de software robusto y aseguramiento de calidad.
+          </p>
         </div>
 
-        {/* content*/}
-        <div className="flex md:flex-col ">
+        {/* Grilla Unificada de Skills - Centrada y Responsiva */}
+        <div className="flex justify-center w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 w-full max-w-5xl">
+            
+            {/* Frontend */}
+            <SkillCard icon={<IoLogoHtml5 />} name="HTML5" colorClass="text-orange-500" />
+            <SkillCard icon={<IoLogoCss3 />} name="CSS3" colorClass="text-blue-500" />
+            <SkillCard icon={<SiJavascript />} name="JavaScript" colorClass="text-yellow-400" />
+            <SkillCard icon={<SiTypescript />} name="TypeScript" colorClass="text-blue-600" />
+            <SkillCard icon={<FaReact />} name="React" colorClass="text-cyan-400" />
+            <SkillCard icon={<SiTailwindcss />} name="Tailwind" colorClass="text-teal-400" />
 
-          <div className="left flex-1 w-full">
-            <p
-              data-aos="fade-up"
-              className=" text-black font-medium w-[100%]"
-            >
-              Here are my skills.
-            </p>
+            {/* Backend & DB */}
+            <SkillCard icon={<IoLogoNodejs />} name="Node.js" colorClass="text-green-500" />
+            <SkillCard icon={<FaJava />} name="Java" colorClass="text-red-600" />
+            <SkillCard icon={<SiCplusplus />} name="C++" colorClass="text-blue-700" />
+            <SkillCard icon={<SiMongodb />} name="MongoDB" colorClass="text-green-600" />
+            <SkillCard icon={<SiMysql />} name="MySQL" colorClass="text-blue-800" />
+            <SkillCard icon={<FaDocker />} name="Docker" colorClass="text-blue-500" />
 
-            {/* left box */}
-            <div
-              data-aos="zoom-in"
-              className="progress flex items-center h-[100%] justify-end md:justify-center"
-            >
-              <div className=" flex flex-col gap-6  w-3/4  my-5 md:w-[90%]">
-                <ProgressBar logo={<IoLogoHtml5 />} name={"HTML"} value={90} />
-                <ProgressBar logo={<IoLogoCss3 />} name={"CSS"} value={70} />
-                <ProgressBar
-                  logo={<SiJavascript />}
-                  name={"Javascript"}
-                  value={85}
-                />
-                <ProgressBar logo={<FaReact />} name={"React Js"} value={90} />
-                <ProgressBar
-                  logo={<SiTailwindcss />}
-                  name={"Tailwind CSS"}
-                  value={55}
-                />
-              </div>
-            </div>
           </div>
-          {/* right box */}
-          <div className="right relative flex-1 flex flex-wrap p-5 gap-10 items-center justify-center sm:w-full">
-            <div className="first2 flex flex-col gap-10">
-              <SkillBox
-                logo={<IoLogoNodejs />}
-                black={"white"}
-                white={"black"}
-                skill={"Node Js"}
-              />
-              <SkillBox
-                logo={<SiMongodb />}
-                black={"white"}
-                white={"black"}
-                skill={"MongoDB"}
-              />
-            </div>
-            <div className="last2 flex flex-col gap-10">
-              <SkillBox
-                logo={<FaDocker />}
-                black={"black"}
-                white={"white"}
-                skill={"Docker"}
-              />
-              <SkillBox
-                className=""
-                logo={
-                  <GrCode />
-                }
-                black={"black"}
-                white={"white"}
-                skill={"C++"}
-              />
-
-            </div>
-          </div>
-        </div>
-        <div className="flex sm:flex-wrap ml-44 xl:ml-0">
-          <img
-            src="https://img.icons8.com/fluency/48/html-5.png"
-            width="48"
-            height="48"
-            alt="html-5"
-            className="mr-2"
-          />
-          <img
-            src="https://img.icons8.com/fluency/48/000000/css3.png"
-            align="center"
-            height="50"
-            width="50"
-            className="mr-2"
-          />
-          <img
-            src="https://img.icons8.com/fluency/48/javascript.png"
-            width="48"
-            height="48"
-            alt="javascript"
-            className="mr-2"
-          />
-          <img
-            src="https://img.icons8.com/plasticine/50/null/react.png"
-            align="center"
-            height="50"
-            width="50"
-            className="mr-2"
-          />
-          <img
-            src="https://img.icons8.com/color/50/null/tailwindcss.png"
-            align="center"
-            height="50"
-            width="50"
-            className="mr-2"
-          />
-          <img
-            src="https://img.icons8.com/color/48/null/nodejs.png"
-            align="center"
-            height="50"
-            width="50"
-          />
-          <img
-            src="https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/50/null/external-mongodb-a-cross-platform-document-oriented-database-program-logo-shadow-tal-revivo.png"
-            align="center"
-            height="50"
-            width="50"
-          />
-          <img
-            src="https://img.icons8.com/color/48/null/c-plus-plus-logo.png"
-            align="center"
-            height="50"
-            width="50"
-          />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

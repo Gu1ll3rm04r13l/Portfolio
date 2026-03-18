@@ -1,98 +1,72 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
 import { data } from "../data/data";
-import { RxExternalLink } from "react-icons/rx";
 import { AiOutlineGithub } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { FiExternalLink } from "react-icons/fi";
 
 const WorkCard = () => {
+  // Verificación de seguridad
+  if (!data || data.length === 0) return null;
+
   const reversedData = [...data].reverse();
 
   return (
-    <>
-      {reversedData.map((data) => {
-        return (
-          <div
-            data-aos="zoom-in"
-            key={data.id}
-            className="flex flex-col justify-center items-center gap-4 mt-auto"
-          >
-            <POPUP className="img-content relative">
-              <div className="h-[280px] w-[380px] hover:scale-125 transition duration-500 cursor-pointer shadow-xl rounded-md overflow-hidden sm:h-[260px] sm:w-[92%] sm:bg-cover mx-auto ">
-                <img
-                  src={data.img}
-                  alt={data.title}
-                  className=" object-cover w-full h-full hover:scale-125 transition duration-500 cursor-pointer"
-                />
-              </div>
-
-              <div
-                className={` popup w-full  h-[280px] shadow-xl rounded-md overflow-hidden sm:h-[260px] sm:w-[92%] p-4`}
-              >
-                <p className=" text-black text-base leading-[1.4] text-justify w-[90%]">
-                  {data.desc}
-                </p>
-                <div className=" flex items-center justify-center gap-4">
-                  {/* <Link
-                    to={data.link}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 w-full max-w-5xl mx-auto px-4">
+      {reversedData.map((item) => (
+        <div
+          key={item.id}
+          className="group relative bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 transition-all duration-500 hover:shadow-2xl"
+        >
+          {/* Contenedor de Imagen con Aspect Ratio fijo */}
+          <div className="relative aspect-video w-full overflow-hidden bg-gray-100">
+            <img
+              src={item.img}
+              alt={item.title}
+              className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+            />
+            
+            {/* Overlay con Blur y Contenido */}
+            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-8 text-center">
+              <p className="text-white text-sm font-medium leading-relaxed mb-6">
+                {item.desc || "Proyecto desarrollado con tecnologías modernas enfocado en la escalabilidad y buenas prácticas."}
+              </p>
+              <div className="flex gap-5">
+                <a
+                  href={item.git}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-black p-3 rounded-full hover:bg-gray-200 transition-transform hover:-translate-y-1 shadow-lg"
+                  title="Repositorio GitHub"
+                >
+                  <AiOutlineGithub size={24} />
+                </a>
+                {item.link && (
+                  <a
+                    href={item.link}
                     target="_blank"
-                    className="  mt-3 rounded-md shadow-md p-1 px-2 flex gap-2 items-center justify-center font-medium"
+                    rel="noopener noreferrer"
+                    className="bg-white text-black p-3 rounded-full hover:bg-gray-200 transition-transform hover:-translate-y-1 shadow-lg"
+                    title="Demo en Vivo"
                   >
-                    <RxExternalLink className=" text-black bg-white rounded-full border  w-[35px] h-[35px] p-2" />
-                    <p className=" text-black">Demo</p>
-                  </Link> */}
-                  <br className="w-[2px] bg-white" />
-                  <Link
-                    to={data.git}
-                    target="_blank"
-                    className="  mt-3 rounded-md shadow-md p-1 px-2 flex gap-2 items-center justify-center font-medium"
-                  >
-                    <AiOutlineGithub className="  text-black bg-white rounded-full border  w-[35px] h-[35px] p-2" />
-                    <p className=" text-black">Code</p>
-                  </Link>
-                </div>
+                    <FiExternalLink size={24} />
+                  </a>
+                )}
               </div>
-            </POPUP>
-            <p className="text-black text-xl font-medium sm:text-lg">
-              {data.title}
-            </p>
+            </div>
           </div>
-        );
-      })}
-    </>
+
+          {/* Información Inferior */}
+          <div className="p-5 bg-white flex justify-between items-center">
+            <h4 className="text-lg font-bold text-gray-900 tracking-tight">
+              {item.title}
+            </h4>
+            <span className="text-[10px] font-black bg-gray-100 text-gray-500 px-2 py-1 rounded uppercase tracking-tighter">
+              Featured Project
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 };
 
 export default WorkCard;
-
-const POPUP = styled.div`
-  position: relative;
-  img {
-    &:hover {
-      transform: scaleX(2);
-    }
-  }
-  .popup {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    margin: auto;
-    transition: 0.5s ease;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .icon {
-    color: #fff !important;
-  }
-  &:hover .popup {
-    opacity: 1;
-    color: #fff;
-  }
-`;

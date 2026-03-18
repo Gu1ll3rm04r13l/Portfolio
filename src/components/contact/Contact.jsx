@@ -1,124 +1,60 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
-import { RiSendPlaneFill } from "react-icons/ri";
 import emailjs from '@emailjs/browser';
 import SendButton from "./Sendbutton";
 
 const Contact = () => {
-
   const form = useRef();
-
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
-
-    const email = form.current.reply_to.value;
-    const name = form.current.from_name.value;
-    const message = form.current.message.value;
-
-    if (!email || !name || !message) {
-      alert("Por favor, complete todos los campos antes de enviar.");
-      return;
-    }
-
-    emailjs.sendForm(
-      'service_iw6lx57',
-      'template_8q9csaf',
-      form.current,
-      'KEttemTMTZI7rbx-f'
-    )
-      .then((result) => {
-        console.log(result.text);
-        setIsFormSubmitted(true);
-      }, (error) => {
-        console.log(error.text);
-      });
+    emailjs.sendForm('service_iw6lx57', 'template_8q9csaf', form.current, 'KEttemTMTZI7rbx-f')
+      .then(() => setIsFormSubmitted(true), (error) => console.log(error.text));
   };
-
 
   useEffect(() => {
     if (isFormSubmitted) {
       setTimeout(() => {
         setIsFormSubmitted(false);
-        form.current.reply_to.value = '';
-        form.current.from_name.value = '';
-        form.current.message.value = '';
-      }, "3000");
+        form.current.reset();
+      }, 3000);
     }
-  }, [isFormSubmitted])
+  }, [isFormSubmitted]);
 
   return (
-    <div id="contact" className="container m-auto mt-16">
-      {/* heading */}
-      <div
-        className="relative mb-5">
-        <h3 className=" text-3xl font-black text-black sm:text-2xl">
-          Contact
-        </h3>
-        <span className="h-[1.1px] right-0 absolute w-[92%] bg-black block"></span>
+    <div id="contact" className="container m-auto mt-20 px-4 mb-20 bg-white">
+      <div className="relative mb-12 flex flex-col items-center">
+        <h3 className="text-4xl font-black text-gray-900 mb-2">Contact</h3>
+        <div className="h-1 w-20 bg-black rounded-full"></div>
       </div>
 
-      {/* card*/}
-      <div className="card-wrapper w-[90%] sm:w-[100%] mx-auto mt-5 flex items-center justify-center sm:flex-col">
-        <div className="left w-[70%] flex-1 flex items-center justify-center sm:flex-col sm:w-full">
-          <div className="flex-3 w-1/2 gap-3 flex items-end justify-end  flex-col sm:w-3/4">
-            <div
-              data-aos="zoom-in"
-            >
-              <h1 className="text-5xl font-bold sm:text-3xl">You Need</h1>
-              <h3 className="text-xl sm:text-lg">
-                Beautiful design for your website leave a request
-              </h3>
-            </div>
-          </div>
-          <div className=" flex p-5 items-center justify-center ">
-            <button
-
-              data-aos="zoom-in"
-
-              className=" text-purple-700 font-extrabold text-3xl p-2 rounded-lg shadow-[0_0_10px_1px_rgba(0,0,0,0.1)] "
-            >
-              <BsArrowRight className=" md:rotate-90" />
-            </button>
+      <div className="flex flex-col md:flex-row items-center justify-between gap-10 max-w-6xl mx-auto">
+        <div className="flex-1 text-center md:text-left">
+          <h1 className="text-6xl font-black text-gray-900 mb-4 sm:text-4xl">You Need</h1>
+          <h3 className="text-xl text-gray-600 max-w-sm">
+            Beautiful design for your website? Leave a request.
+          </h3>
+          <div className="hidden md:flex mt-8">
+            <BsArrowRight className="text-4xl text-black" />
           </div>
         </div>
-        <div className="right flex-1">
-          <form
-            ref={form}
-            onSubmit={sendEmail}
-            data-aos="zoom-in"
-            className="flex justify-center items-center flex-col gap-5 w-[70%] md:w-[100%] sm:w-[95%] mx-auto"
-            action="mailto:arieldelfresno2690@gmail.com"
-          >
+
+        <div className="flex-1 w-full max-w-md">
+          <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-4">
             <input
-              className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
-              type="email"
-              placeholder="e.g. example@gmail.com"
-              name="reply_to"
+              className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-black outline-none"
+              type="email" placeholder="example@gmail.com" name="reply_to" required
             />
             <input
-              className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
-              type="text"
-              placeholder="e.g. Ariel del Fresno"
-              name="from_name"
+              className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-black outline-none"
+              type="text" placeholder="Ariel del Fresno" name="from_name" required
             />
             <textarea
-              className="px-3 shadow-[0_0_16px_0px_rgba(0,0,0,0.1)] p-2 rounded-lg w-full"
-              rows="4"
-              cols="50"
-              placeholder="Write your message"
-              name="message"
-              id=""
+              className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-black outline-none"
+              rows="4" placeholder="Write your message" name="message" required
             />
-            {/* <button
-              className={`bg-purple-500 w-full text-white font-semibold p-2 rounded-lg flex items-center justify-center space-x-1 ${isFormSubmitted ? 'bg-green-600' : ''}`}
-              type="submit"
-            >
-              <span>{isFormSubmitted ? 'Sent' : 'Send'}</span>
-              {isFormSubmitted ? " " : <RiSendPlaneFill />}
-            </button> */}
-            <SendButton/>
+            <SendButton isSubmitted={isFormSubmitted} />
           </form>
         </div>
       </div>
@@ -127,4 +63,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

@@ -3,28 +3,27 @@ import WorkCard from "../../chip/WorkCard";
 
 const Work = () => {
   return (
-    <div id="works" className="container m-auto mt-16">
-      {/* heading */}
-      <div
-        data-aos="fade-up"
-        className="relative mb-5">
-        <h3 className="text-3xl font-black text-black sm:text-2xl">Works</h3>
-        <span className="h-[1.1px] right-0 absolute w-[92%] bg-black block"></span>
-      </div>
-      <div
-        data-aos="fade-up"
-        className="left flex-1 w-full">
-        <p className="text-black font-medium w-[100%]">
-          Here are some of my works.
-        </p>
-      </div>
-      {/* card */}
-      <div className="card-wrapper mx-auto w-[90%] sm:w-fit mt-5">
-        <div className="card-box grid grid-cols-3 space-y-5 space-x-5 w-full md:grid-cols-2 sm:gap-8 sm:grid-cols-1 sm:space-y-0">
+    <section id="work" className="py-20 bg-white">
+      <div className="container m-auto px-4">
+        
+        {/* Encabezado */}
+        <div data-aos="fade-up" className="relative mb-12 flex flex-col items-center">
+          <h3 className="text-4xl font-black text-gray-900 mb-2">
+            Proyectos
+          </h3>
+          <div className="h-1 w-20 bg-black rounded-full"></div>
+          <p className="mt-4 text-gray-600 font-medium text-center">
+            Una selección de mis trabajos más recientes en desarrollo y testing.
+          </p>
+        </div>
+
+        {/* Contenedor del Grid (Manejado dentro de WorkCard) */}
+        <div className="flex justify-center">
           <WorkCard />
         </div>
+
       </div>
-    </div>
+    </section>
   );
 };
 
