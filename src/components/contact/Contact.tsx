@@ -3,9 +3,8 @@
 import { useState, useRef, FormEvent } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import { FiSend, FiCheckCircle } from "react-icons/fi";
+import { FiSend, FiCheckCircle, FiGithub, FiLinkedin } from "react-icons/fi";
 import { social } from "@/data";
-import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { BsWhatsapp } from "react-icons/bs";
 
 const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
@@ -39,6 +38,27 @@ export default function Contact() {
   return (
     <section id="contacto" className="section-padding px-6">
       <div className="max-w-4xl mx-auto">
+
+        {/* Disponible para trabajar — banner centrado */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mb-10"
+        >
+          <div className="flex items-center gap-3 px-6 py-3 rounded-full border border-violet-500/25 bg-violet-500/8 backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse flex-shrink-0" />
+            <span className="text-sm font-medium text-violet-300">
+              Disponible para trabajar
+            </span>
+            <span className="text-zinc-500 text-sm">·</span>
+            <span className="text-sm text-zinc-400">
+              Abierto a oportunidades en desarrollo de software
+            </span>
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,8 +85,9 @@ export default function Contact() {
           >
             <div>
               <p className="text-zinc-400 leading-relaxed mb-8">
-                Estoy buscando oportunidades en desarrollo de software. Si tenés
-                una posición open o querés hablar sobre un proyecto, escribime.
+                Trabajo en desarrollo web con experiencia en proyectos reales,
+                incluyendo freelance. Si tenés una posición open o querés hablar
+                sobre un proyecto, escribime.
               </p>
               <div className="flex flex-col gap-4">
                 <a

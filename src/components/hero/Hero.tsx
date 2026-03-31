@@ -73,7 +73,7 @@ export default function Hero() {
 
         <motion.h1
           variants={item}
-          className="text-5xl md:text-7xl font-bold tracking-tight mb-4"
+          className="text-4xl xs:text-5xl md:text-7xl font-bold tracking-tight mb-4"
         >
           <span className="text-zinc-100">Guillermo Ariel</span>
           <br />
@@ -88,7 +88,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="text-xl md:text-2xl font-medium text-violet-400"
+              className="text-lg xs:text-xl md:text-2xl font-medium text-violet-400"
             >
               {roles[roleIndex]}
             </motion.span>

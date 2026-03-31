@@ -1,10 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { education, certifications } from "@/data";
 import { HiAcademicCap, HiBadgeCheck } from "react-icons/hi";
 
+type Cert = (typeof certifications)[number];
+
 export default function Resume() {
+  const [activeCert, setActiveCert] = useState<Cert | null>(null);
+
   return (
     <section id="educacion" className="section-padding px-6">
       <div className="max-w-6xl mx-auto">
@@ -84,7 +89,17 @@ export default function Resume() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="glass glass-hover rounded-2xl p-5 flex items-start gap-4"
+                onClick={() => cert.image && setActiveCert(cert)}
+                className={`glass rounded-2xl p-5 flex items-start gap-4 ${
+                  cert.image
+                    ? "cursor-pointer hover:border-violet-500/30 transition-all duration-200"
+                    : "glass-hover"
+                }`}
+                style={
+                  cert.image
+                    ? { borderColor: "rgba(139,92,246,0.15)" }
+                    : undefined
+                }
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
@@ -92,38 +107,72 @@ export default function Resume() {
                 >
                   <HiBadgeCheck style={{ color: cert.color }} size={20} />
                 </div>
-                <div>
+                <div className="flex-1 min-w-0">
                   <h3 className="font-semibold text-zinc-100 text-sm leading-snug">
                     {cert.title}
                   </h3>
                   <p className="text-violet-400 text-sm mt-0.5">{cert.issuer}</p>
-                  <p className="text-zinc-600 text-xs mt-1">{cert.id}</p>
+                  {cert.id && (
+                    <p className="text-zinc-600 text-xs mt-1">{cert.id}</p>
+                  )}
+                  {cert.image && (
+                    <p className="text-violet-500/60 text-xs mt-2 flex items-center gap-1">
+                      <span className="w-1 h-1 rounded-full bg-violet-500/60 inline-block" />
+                      Click para ver certificado
+                    </p>
+                  )}
                 </div>
               </motion.div>
             ))}
 
-            {/* Open to work card */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="rounded-2xl p-5 border border-violet-500/20 bg-violet-500/5"
-            >
-              <div className="flex items-center gap-2 mb-2">
-                <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
-                <span className="text-sm font-medium text-violet-400">
-                  Disponible para trabajar
-                </span>
-              </div>
-              <p className="text-sm text-zinc-400 leading-relaxed">
-                Busco mi primer rol en desarrollo de software. Listo para sumar
-                en equipos que valoren calidad y aprendizaje continuo.
-              </p>
-            </motion.div>
           </div>
         </div>
       </div>
+
+      {/* Certificate image overlay */}
+      <AnimatePresence>
+        {activeCert && activeCert.image && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm px-6"
+            onClick={() => setActiveCert(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.88, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.88, y: 16 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-2xl w-full"
+            >
+              {/* X button */}
+              <button
+                onClick={() => setActiveCert(null)}
+                className="absolute -top-3 -right-3 z-10 w-8 h-8 rounded-full bg-zinc-900 border border-violet-500/30 text-zinc-400 hover:text-zinc-100 hover:border-violet-400/60 flex items-center justify-center transition-all duration-200 text-sm font-medium"
+                aria-label="Cerrar"
+              >
+                ✕
+              </button>
+              <div
+                className="rounded-2xl overflow-hidden border border-violet-500/30"
+                style={{ boxShadow: "0 0 40px rgba(139,92,246,0.25), 0 25px 50px rgba(0,0,0,0.5)" }}
+              >
+                <img
+                  src={activeCert.image}
+                  alt={activeCert.title}
+                  className="w-full h-auto block"
+                />
+              </div>
+              <p className="text-center text-zinc-400 text-sm mt-3">
+                {activeCert.title}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

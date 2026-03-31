@@ -1,15 +1,15 @@
 import {
   SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss,
   SiNodedotjs, SiMongodb, SiMysql, SiDocker, SiHtml5,
-  SiSelenium, SiGit, SiCplusplus,
+  SiSelenium, SiGit, SiCplusplus, SiSupabase,
 } from "react-icons/si";
 import { FaJava, FaCss3Alt } from "react-icons/fa";
 
 export const navLinks = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Skills", href: "#skills" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Educación", href: "#educacion" },
+  { label: "Skills", href: "#skills" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -29,6 +29,7 @@ export const skills = [
   { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
   { name: "CSS3", icon: FaCss3Alt, color: "#1572B6" },
   { name: "C++", icon: SiCplusplus, color: "#00599C" },
+  { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
 ];
 
 export const projects = [
@@ -43,7 +44,7 @@ export const projects = [
       "Desarrollé una aplicación full-stack en Next.js integrando 4 APIs externas: Blizzard, Warcraft Logs, Raider.io y WoW Render Services. Dashboard con datos en vivo, sistema de postulaciones y rankings de servidor.",
     result:
       "Plataforma activa usada por la guild. Tracking en vivo de jefes, historial de kills y portal de reclutamiento con evaluación en 48hs. Ranking #7 en servidor Ragnaros US.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Blizzard API", "Warcraft Logs", "Raider.io"],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Blizzard API", "Warcraft Logs", "Raider.io"],
     demo: "https://tbs-guild.vercel.app",
     github: "https://github.com/Gu1ll3rm04r13l/tbs-guild",
     image: "/projects/tbs-guild.png",
@@ -66,11 +67,54 @@ export const projects = [
   },
 ];
 
+export const academicProjects = [
+  {
+    id: 1,
+    number: "A1",
+    title: "Proyecto Integrador",
+    description:
+      "Proyecto integrador de la carrera Certified Tech Developer con arquitectura full-stack y trabajo colaborativo.",
+    tech: ["React", "Node.js", "Java", "MySQL"],
+    demo: "",
+    github: "https://github.com/Gu1ll3rm04r13l/Proyecto-Integrador",
+  },
+  {
+    id: 2,
+    number: "A2",
+    title: "Final Frontend 3",
+    description:
+      "Proyecto final del módulo Frontend 3 en Digital House. Aplicación React con manejo de estado y consumo de APIs.",
+    tech: ["React", "JavaScript", "CSS"],
+    demo: "https://final-front-end3-two.vercel.app",
+    github: "https://github.com/Gu1ll3rm04r13l/FinalFrontEnd3",
+  },
+  {
+    id: 3,
+    number: "A3",
+    title: "ToDo App",
+    description:
+      "Aplicación de gestión de tareas construida a partir de template inicial, demostrando componentes funcionales y estado en React.",
+    tech: ["React", "JavaScript"],
+    demo: "https://to-do-app-template-inicial.vercel.app",
+    github: "https://github.com/Gu1ll3rm04r13l/ToDo-App-template-inicial",
+  },
+  {
+    id: 4,
+    number: "A4",
+    title: "Final Frontend 1",
+    description:
+      "Proyecto final del primer módulo de Frontend, cubriendo HTML semántico, CSS y JavaScript vanilla.",
+    tech: ["HTML5", "CSS3", "JavaScript"],
+    demo: "",
+    github: "https://github.com/Gu1ll3rm04r13l/FinalFront1",
+  },
+];
+
 export const education = [
   {
     title: "Certified Tech Developer",
     institution: "Digital House",
-    period: "Feb 2022 — Dic 2024",
+    period: "Feb 2022 — Dic 2023",
     description:
       "Full-stack certified. Frontend y Backend services, IT & Agile tools. Actividades con MercadoLibre y Globant.",
     tags: ["React", "Node.js", "Java", "MySQL", "MongoDB", "Agile"],
@@ -91,6 +135,21 @@ export const certifications = [
     issuer: "CertiProf",
     id: "SFPC #90425039",
     color: "#8b5cf6",
+    image: "/certifications/CertiProf.png",
+  },
+  {
+    title: "Certified Tech Developer",
+    issuer: "Digital House",
+    id: "Diploma de finalización",
+    color: "#8b5cf6",
+    image: "/certifications/DIploma CTD - Guillermo Ariel del Fresno.png",
+  },
+  {
+    title: "Desarrollo de Software con Inteligencia Artificial",
+    issuer: "Capacitación Profesional",
+    id: "",
+    color: "#8b5cf6",
+    image: "/certifications/Desarrollo con IA.png",
   },
 ];
 

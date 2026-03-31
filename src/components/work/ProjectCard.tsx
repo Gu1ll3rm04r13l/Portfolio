@@ -35,7 +35,7 @@ export default function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`grid md:grid-cols-2 gap-8 items-center ${
+      className={`grid md:grid-cols-2 gap-6 md:gap-10 items-center ${
         !isEven ? "md:[&>*:first-child]:order-2" : ""
       }`}
     >
@@ -92,7 +92,7 @@ export default function ProjectCard({
           <span className="text-6xl font-black text-white/5 leading-none select-none">
             {project.number}
           </span>
-          <h3 className="text-2xl md:text-3xl font-bold text-zinc-100 -mt-3">
+          <h3 className="text-xl md:text-3xl font-bold text-zinc-100 -mt-3">
             {project.title}
           </h3>
           <p className="text-violet-400 text-sm mt-1">{project.subtitle}</p>
