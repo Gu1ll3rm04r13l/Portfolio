@@ -75,7 +75,6 @@ export const academicProjects = [
     description:
       "Proyecto integrador de la carrera Certified Tech Developer con arquitectura full-stack y trabajo colaborativo.",
     tech: ["React", "Node.js", "Java", "MySQL"],
-    demo: "",
     github: "https://github.com/Gu1ll3rm04r13l/Proyecto-Integrador",
   },
   {
@@ -85,7 +84,6 @@ export const academicProjects = [
     description:
       "Proyecto final del módulo Frontend 3 en Digital House. Aplicación React con manejo de estado y consumo de APIs.",
     tech: ["React", "JavaScript", "CSS"],
-    demo: "https://final-front-end3-two.vercel.app",
     github: "https://github.com/Gu1ll3rm04r13l/FinalFrontEnd3",
   },
   {
@@ -95,7 +93,6 @@ export const academicProjects = [
     description:
       "Aplicación de gestión de tareas construida a partir de template inicial, demostrando componentes funcionales y estado en React.",
     tech: ["React", "JavaScript"],
-    demo: "https://to-do-app-template-inicial.vercel.app",
     github: "https://github.com/Gu1ll3rm04r13l/ToDo-App-template-inicial",
   },
   {
@@ -105,7 +102,6 @@ export const academicProjects = [
     description:
       "Proyecto final del primer módulo de Frontend, cubriendo HTML semántico, CSS y JavaScript vanilla.",
     tech: ["HTML5", "CSS3", "JavaScript"],
-    demo: "",
     github: "https://github.com/Gu1ll3rm04r13l/FinalFront1",
   },
 ];

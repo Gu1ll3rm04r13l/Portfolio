@@ -57,14 +57,32 @@ export default function Work() {
         <AnimatePresence>
           {showAcademic && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
+              initial={{ height: 0 }}
+              animate={{ height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="overflow-hidden"
+              transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="overflow-hidden relative"
             >
+              {/* Scanner line */}
+              <motion.div
+                initial={{ top: 48, opacity: 1 }}
+                animate={{ top: "100%", opacity: 0 }}
+                transition={{ duration: 1.1, ease: "easeInOut", delay: 0.05 }}
+                className="absolute inset-x-0 h-px pointer-events-none z-10"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, #a78bfa, #8b5cf6, #a78bfa, transparent)",
+                  boxShadow: "0 0 12px 2px rgb(139 92 246 / 0.55)",
+                }}
+              />
+
               <div className="pt-12">
-                <div className="mb-8">
+                <motion.div
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.45, delay: 0.2, ease: "easeOut" }}
+                  className="mb-8"
+                >
                   <p className="text-zinc-600 text-xs font-medium tracking-widest uppercase mb-1">
                     Digital House · CTD
                   </p>
@@ -75,7 +93,7 @@ export default function Work() {
                     Trabajos prácticos y proyectos finales realizados durante la
                     carrera Certified Tech Developer.
                   </p>
-                </div>
+                </motion.div>
 
                 <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4">
                   {academicProjects.map((project, i) => (

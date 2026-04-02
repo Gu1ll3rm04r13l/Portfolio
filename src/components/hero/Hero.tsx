@@ -8,7 +8,7 @@ import { BsWhatsapp } from "react-icons/bs";
 
 const roles = [
   "Full Stack Developer",
-  "QA Automation Engineer",
+  "QA Automation",
   "React & Node.js",
   "Certified Tech Developer",
 ];

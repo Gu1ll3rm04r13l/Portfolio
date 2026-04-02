@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { FiGithub } from "react-icons/fi";
 
 interface AcademicProject {
   id: number;
@@ -9,7 +9,6 @@ interface AcademicProject {
   title: string;
   description: string;
   tech: string[];
-  demo: string;
   github: string;
 }
 
@@ -29,9 +28,13 @@ export default function AcademicProjectCard({
 }) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.07, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 36, scale: 0.92, filter: "blur(10px)" }}
+      animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+      transition={{
+        duration: 0.55,
+        delay: 0.3 + index * 0.1,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className="glass glass-hover rounded-2xl overflow-hidden flex flex-col"
     >
       {/* Gradient header */}
@@ -65,17 +68,6 @@ export default function AcademicProjectCard({
         </div>
 
         <div className="flex items-center gap-4 pt-1 border-t border-white/5">
-          {project.demo && (
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-zinc-400 hover:text-violet-400 transition-colors"
-            >
-              <FiExternalLink size={13} />
-              Demo
-            </a>
-          )}
           <a
             href={project.github}
             target="_blank"
