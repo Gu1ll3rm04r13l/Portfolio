@@ -1,9 +1,9 @@
-# 🚀 Portfolio Personal - Ariel del Fresno
+# 🚀 Portfolio Personal - Ariel del Fresno -  ![Version](https://img.shields.io/badge/version-1.6.0-blue)
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
-![Version](https://img.shields.io/badge/version-1.6.0-blue)
+
 
 Portfolio personal desarrollado con un enfoque **minimalista y profesional**, diseñado para resaltar mis habilidades como desarrollador y mi experiencia en el mundo tech.
 
