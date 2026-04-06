@@ -5,10 +5,12 @@ import Work from "@/components/work/Work";
 import Resume from "@/components/resume/Resume";
 import Contact from "@/components/contact/Contact";
 import Footer from "@/components/footer/Footer";
+import GridBackground from "@/components/GridBackground";
 
 export default function Home() {
   return (
-    <main>
+    <main className="relative">
+      <GridBackground />
       <NavBar />
       <Hero />
       <Work />
