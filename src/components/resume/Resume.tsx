@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { education, certifications } from "@/data";
 import { HiAcademicCap, HiBadgeCheck } from "react-icons/hi";
@@ -160,10 +161,13 @@ export default function Resume() {
                 className="rounded-2xl overflow-hidden border border-violet-500/30"
                 style={{ boxShadow: "0 0 40px rgba(139,92,246,0.25), 0 25px 50px rgba(0,0,0,0.5)" }}
               >
-                <img
+                <Image
                   src={activeCert.image}
                   alt={activeCert.title}
+                  width={800}
+                  height={600}
                   className="w-full h-auto block"
+                  style={{ width: "100%", height: "auto" }}
                 />
               </div>
               <p className="text-center text-zinc-400 text-sm mt-3">

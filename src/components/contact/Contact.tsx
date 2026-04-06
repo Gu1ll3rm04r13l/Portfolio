@@ -140,10 +140,11 @@ export default function Contact() {
               className="glass rounded-2xl p-6 flex flex-col gap-4"
             >
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs text-zinc-400 font-medium">
+                <label htmlFor="contact-email" className="text-xs text-zinc-400 font-medium">
                   Email
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
                   name="reply_to"
                   required
@@ -152,10 +153,11 @@ export default function Contact() {
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs text-zinc-400 font-medium">
+                <label htmlFor="contact-name" className="text-xs text-zinc-400 font-medium">
                   Nombre
                 </label>
                 <input
+                  id="contact-name"
                   type="text"
                   name="from_name"
                   required
@@ -164,10 +166,11 @@ export default function Contact() {
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs text-zinc-400 font-medium">
+                <label htmlFor="contact-message" className="text-xs text-zinc-400 font-medium">
                   Mensaje
                 </label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   required
                   rows={4}

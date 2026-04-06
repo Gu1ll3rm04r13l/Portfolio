@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiExternalLink, FiGithub, FiChevronDown } from "react-icons/fi";
 
@@ -54,11 +55,13 @@ export default function ProjectCard({
         </div>
         {/* Real image on top when available */}
         {!imgError && (
-          <img
+          <Image
             src={project.image}
             alt={project.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             onError={() => setImgError(true)}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         )}
         {/* Overlay with links on hover */}

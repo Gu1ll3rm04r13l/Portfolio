@@ -9,8 +9,9 @@ import GridBackground from "@/components/GridBackground";
 
 export default function Home() {
   return (
-    <main className="relative">
+    <>
       <GridBackground />
+      <main className="relative">
       <NavBar />
       <Hero />
       <Work />
@@ -18,6 +19,7 @@ export default function Home() {
       <Skills />
       <Contact />
       <Footer />
-    </main>
+      </main>
+    </>
   );
 }
