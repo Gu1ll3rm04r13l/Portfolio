@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" width="800" height="460">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#52525b"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect width="800" height="460" fill="#09090b"/>
+
+  <!-- header -->
+  <text x="400" y="36" text-anchor="middle" fill="#52525b" font-size="11" font-family="monospace" letter-spacing="4">RENTAL-LOG</text>
+  <text x="400" y="56" text-anchor="middle" fill="#a78bfa" font-size="10" font-family="monospace" letter-spacing="2">SISTEMA DE AUTOMATIZACIÓN</text>
+
+  <!-- WF1 label -->
+  <text x="50" y="98" fill="#8b5cf6" font-size="10" font-family="monospace" letter-spacing="2">WF1 · FACTURAS ENTRANTES</text>
+
+  <!-- WF1: Gmail -->
+  <rect x="50" y="110" width="128" height="52" rx="10" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="114" y="134" text-anchor="middle" fill="#e4e4e7" font-size="12" font-family="monospace">Gmail</text>
+  <text x="114" y="152" text-anchor="middle" fill="#71717a" font-size="9" font-family="monospace">factura entrante</text>
+
+  <line x1="180" y1="136" x2="208" y2="136" stroke="#52525b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- WF1: n8n -->
+  <rect x="210" y="110" width="128" height="52" rx="10" fill="#18181b" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="274" y="134" text-anchor="middle" fill="#e4e4e7" font-size="12" font-family="monospace">n8n</text>
+  <text x="274" y="152" text-anchor="middle" fill="#a78bfa" font-size="9" font-family="monospace">orquestación</text>
+
+  <line x1="340" y1="136" x2="368" y2="136" stroke="#52525b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- WF1: Claude API -->
+  <rect x="370" y="110" width="128" height="52" rx="10" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="434" y="134" text-anchor="middle" fill="#e4e4e7" font-size="12" font-family="monospace">Claude API</text>
+  <text x="434" y="152" text-anchor="middle" fill="#71717a" font-size="9" font-family="monospace">extrae datos</text>
+
+  <line x1="500" y1="136" x2="528" y2="136" stroke="#52525b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- WF1: Sheets -->
+  <rect x="530" y="110" width="128" height="52" rx="10" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="594" y="134" text-anchor="middle" fill="#e4e4e7" font-size="12" font-family="monospace">Sheets</text>
+  <text x="594" y="152" text-anchor="middle" fill="#fbbf24" font-size="9" font-family="monospace">→ PENDIENTE</text>
+
+  <!-- email forward (dashed arc) -->
+  <path d="M594 162 Q594 195 434 205 Q274 215 114 205 Q60 200 60 186" stroke="#3f3f46" stroke-width="1" fill="none" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+  <text x="400" y="228" text-anchor="middle" fill="#52525b" font-size="9" font-family="monospace">reenvío email HTML a inquilina</text>
+
+  <!-- divider -->
+  <line x1="50" y1="250" x2="750" y2="250" stroke="#27272a" stroke-width="1"/>
+
+  <!-- WF2 label -->
+  <text x="50" y="282" fill="#8b5cf6" font-size="10" font-family="monospace" letter-spacing="2">WF2 · COMPROBANTES DE PAGO</text>
+
+  <!-- WF2: Gmail -->
+  <rect x="50" y="294" width="128" height="52" rx="10" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="114" y="318" text-anchor="middle" fill="#e4e4e7" font-size="12" font-family="monospace">Gmail</text>
+  <text x="114" y="336" text-anchor="middle" fill="#71717a" font-size="9" font-family="monospace">comprobante</text>
+
+  <line x1="180" y1="320" x2="208" y2="320" stroke="#52525b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- WF2: n8n -->
+  <rect x="210" y="294" width="128" height="52" rx="10" fill="#18181b" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="274" y="318" text-anchor="middle" fill="#e4e4e7" font-size="12" font-family="monospace">n8n</text>
+  <text x="274" y="336" text-anchor="middle" fill="#a78bfa" font-size="9" font-family="monospace">orquestación</text>
+
+  <line x1="340" y1="320" x2="368" y2="320" stroke="#52525b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- WF2: Claude Vision -->
+  <rect x="370" y="294" width="128" height="52" rx="10" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="434" y="318" text-anchor="middle" fill="#e4e4e7" font-size="12" font-family="monospace">Claude Vision</text>
+  <text x="434" y="336" text-anchor="middle" fill="#71717a" font-size="9" font-family="monospace">lee PDF / img</text>
+
+  <line x1="500" y1="320" x2="528" y2="320" stroke="#52525b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- WF2: Sheets -->
+  <rect x="530" y="294" width="128" height="52" rx="10" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="594" y="318" text-anchor="middle" fill="#e4e4e7" font-size="12" font-family="monospace">Sheets</text>
+  <text x="594" y="336" text-anchor="middle" fill="#22c55e" font-size="9" font-family="monospace">→ PAGADO</text>
+
+  <!-- footer -->
+  <text x="400" y="418" text-anchor="middle" fill="#3f3f46" font-size="9" font-family="monospace" letter-spacing="1">n8n · Claude API · Claude Vision · Gmail API · Google Sheets · OAuth2</text>
+</svg>

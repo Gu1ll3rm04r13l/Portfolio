@@ -14,9 +14,11 @@ interface Project {
   solution: string;
   result: string;
   tech: string[];
-  demo: string;
+  demo: string | null;
+  demoLabel?: string;
   github: string;
   image: string;
+  inDevelopment?: boolean;
 }
 
 export default function ProjectCard({
@@ -29,6 +31,7 @@ export default function ProjectCard({
   const [expanded, setExpanded] = useState(false);
   const [imgError, setImgError] = useState(false);
   const isEven = index % 2 === 0;
+  const demoLabel = project.demoLabel ?? "Demo";
 
   return (
     <motion.article
@@ -42,7 +45,6 @@ export default function ProjectCard({
     >
       {/* Image */}
       <div className="relative rounded-2xl overflow-hidden aspect-video glass border border-white/5 group">
-        {/* Gradient placeholder */}
         <div
           className="absolute inset-0 flex items-center justify-center"
           style={{
@@ -53,7 +55,6 @@ export default function ProjectCard({
             {project.number}
           </span>
         </div>
-        {/* Real image on top when available */}
         {!imgError && (
           <Image
             src={project.image}
@@ -62,20 +63,22 @@ export default function ProjectCard({
             sizes="(max-width: 768px) 100vw, 50vw"
             onError={() => setImgError(true)}
             className="object-cover transition-transform duration-500 group-hover:scale-105"
+            unoptimized={project.image.endsWith(".svg")}
           />
         )}
-        {/* Overlay with links on hover */}
         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10">
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-violet-600 text-white text-sm font-medium hover:bg-violet-500 transition-colors"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <FiExternalLink size={14} />
-            Demo
-          </a>
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-violet-600 text-white text-sm font-medium hover:bg-violet-500 transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <FiExternalLink size={14} />
+              {demoLabel}
+            </a>
+          )}
           <a
             href={project.github}
             target="_blank"
@@ -95,9 +98,17 @@ export default function ProjectCard({
           <span className="text-6xl font-black text-white/5 leading-none select-none">
             {project.number}
           </span>
-          <h3 className="text-xl md:text-3xl font-bold text-zinc-100 -mt-3">
-            {project.title}
-          </h3>
+          <div className="flex flex-wrap items-center gap-2 -mt-3">
+            <h3 className="text-xl md:text-3xl font-bold text-zinc-100">
+              {project.title}
+            </h3>
+            {project.inDevelopment && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                En desarrollo
+              </span>
+            )}
+          </div>
           <p className="text-violet-400 text-sm mt-1">{project.subtitle}</p>
         </div>
 
@@ -158,15 +169,17 @@ export default function ProjectCard({
 
         {/* Links */}
         <div className="flex items-center gap-4">
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-zinc-300 hover:text-violet-400 transition-colors"
-          >
-            <FiExternalLink size={15} />
-            Ver demo
-          </a>
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-zinc-300 hover:text-violet-400 transition-colors"
+            >
+              <FiExternalLink size={15} />
+              {demoLabel}
+            </a>
+          )}
           <a
             href={project.github}
             target="_blank"

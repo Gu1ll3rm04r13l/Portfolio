@@ -1,35 +1,109 @@
 import {
   SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss,
-  SiNodedotjs, SiMongodb, SiMysql, SiDocker, SiHtml5,
-  SiSelenium, SiGit, SiCplusplus, SiSupabase,
+  SiHtml5, SiNodedotjs, SiSupabase, SiPostgresql, SiMysql,
+  SiGit, SiDocker, SiVercel, SiLinux, SiClaude, SiAnthropic,
 } from "react-icons/si";
-import { FaJava, FaCss3Alt } from "react-icons/fa";
+import { FaCss3Alt } from "react-icons/fa";
+import { FiZap, FiServer, FiDatabase, FiShare2, FiEye } from "react-icons/fi";
+import type { IconType } from "react-icons";
+
+export type SkillItem = {
+  name: string;
+  icon: IconType;
+  color: string;
+};
 
 export const navLinks = [
   { label: "Inicio", href: "#inicio" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Educación", href: "#educacion" },
+  { label: "Services", href: "#servicios" },
   { label: "Skills", href: "#skills" },
   { label: "Contacto", href: "#contacto" },
 ];
 
-export const skills = [
-  { name: "React", icon: SiReact, color: "#61DAFB", featured: true },
-  { name: "Next.js", icon: SiNextdotjs, color: "#ffffff", featured: true },
-  { name: "TypeScript", icon: SiTypescript, color: "#3178C6", featured: true },
-  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-  { name: "Node.js", icon: SiNodedotjs, color: "#339933", featured: true },
-  { name: "Java", icon: FaJava, color: "#ED8B00" },
-  { name: "Selenium", icon: SiSelenium, color: "#43B02A" },
-  { name: "MySQL", icon: SiMysql, color: "#4479A1" },
-  { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-  { name: "Docker", icon: SiDocker, color: "#2496ED" },
-  { name: "Git", icon: SiGit, color: "#F05032" },
-  { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
-  { name: "CSS3", icon: FaCss3Alt, color: "#1572B6" },
-  { name: "C++", icon: SiCplusplus, color: "#00599C" },
-  { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
+export const skillCategories: {
+  label: string;
+  direction: "left" | "right";
+  speed: number;
+  items: SkillItem[];
+}[] = [
+  {
+    label: "Frontend",
+    direction: "left",
+    speed: 30,
+    items: [
+      { name: "React", icon: SiReact, color: "#61DAFB" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+      { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+      { name: "CSS3", icon: FaCss3Alt, color: "#1572B6" },
+    ],
+  },
+  {
+    label: "Backend & Database",
+    direction: "right",
+    speed: 36,
+    items: [
+      { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+      { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
+      { name: "Neon", icon: FiDatabase, color: "#00E5B0" },
+      { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+      { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+      { name: "REST APIs", icon: FiServer, color: "#a1a1aa" },
+    ],
+  },
+  {
+    label: "Automation & AI",
+    direction: "left",
+    speed: 27,
+    items: [
+      { name: "n8n", icon: FiZap, color: "#EA4B71" },
+      { name: "Claude Code", icon: SiClaude, color: "#D97757" },
+      { name: "Anthropic API", icon: SiAnthropic, color: "#D97757" },
+      { name: "Claude Vision", icon: FiEye, color: "#a78bfa" },
+      { name: "Groq API", icon: FiZap, color: "#f97316" },
+      { name: "MCP", icon: FiShare2, color: "#71717a" },
+    ],
+  },
+  {
+    label: "DevOps & Tools",
+    direction: "right",
+    speed: 40,
+    items: [
+      { name: "Git", icon: SiGit, color: "#F05032" },
+      { name: "Docker", icon: SiDocker, color: "#2496ED" },
+      { name: "Vercel", icon: SiVercel, color: "#ffffff" },
+      { name: "Hostinger VPS", icon: FiServer, color: "#e67e22" },
+      { name: "Linux", icon: SiLinux, color: "#FCC624" },
+    ],
+  },
+];
+
+export const services = [
+  {
+    id: 1,
+    title: "Full Stack Web Development",
+    description:
+      "Aplicaciones web completas con foco en performance y experiencia de usuario. Desde landing pages hasta dashboards con datos en vivo.",
+    stack: ["Next.js", "React", "TypeScript", "Supabase", "Neon"],
+  },
+  {
+    id: 2,
+    title: "AI Automation",
+    description:
+      "Workflows automatizados para PYMEs. Integro LLMs y APIs para reducir tareas repetitivas y escalar operaciones sin sumar headcount.",
+    stack: ["n8n", "Anthropic API", "Groq API", "Claude Code"],
+  },
+  {
+    id: 3,
+    title: "Conversational Agents",
+    description:
+      "Agentes de atención al cliente para WhatsApp e Instagram. Respuestas 24/7, integración con CRM y handoff a humano cuando hace falta.",
+    stack: ["Meta Cloud API", "ManyChat", "n8n"],
+  },
 ];
 
 export const projects = [
@@ -64,6 +138,24 @@ export const projects = [
     demo: "https://mitico-theta.vercel.app",
     github: "https://github.com/Gu1ll3rm04r13l/Mitico",
     image: "/projects/mitico.png",
+  },
+  {
+    id: 3,
+    number: "03",
+    title: "Rental-Log",
+    subtitle: "Sistema de Automatización — Gestión de Alquiler",
+    problem:
+      "La gestión manual de un departamento en alquiler implica tareas repetitivas todos los meses: recibir facturas de servicios (luz, gas, agua), reenviarlas a la inquilina, esperar el comprobante de pago, y registrar todo en una planilla. Es propenso a errores y consume tiempo.",
+    solution:
+      "Dos workflows en n8n orquestan Gmail, Claude API y Google Sheets para automatizar el ciclo completo. El primer workflow detecta facturas entrantes de EDEA, Camuzzi y Obras Sanitarias, extrae los datos con Claude (proveedor, monto, vencimiento, período), las registra como PENDIENTE en Sheets y reenvía un email HTML a la inquilina con el resumen. El segundo workflow detecta comprobantes de pago entrantes, los lee con Claude Vision (PDF o imagen), matchea con la factura correspondiente y actualiza el estado a PAGADO con todos los datos del pago.",
+    result:
+      "Sistema en desarrollo activo. Elimina la gestión manual mensual de facturas y pagos. Arquitectura modular con workflows versionados y prompts separados por responsabilidad.",
+    tech: ["n8n", "Claude API", "Claude Vision", "Gmail API", "Google Sheets", "OAuth2"],
+    demo: "https://github.com/Gu1ll3rm04r13l/catamarca#readme",
+    demoLabel: "Ver README",
+    github: "https://github.com/Gu1ll3rm04r13l/catamarca",
+    image: "/projects/rental-log.svg",
+    inDevelopment: true,
   },
 ];
 
