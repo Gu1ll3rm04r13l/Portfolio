@@ -157,6 +157,39 @@ export const projects = [
     image: "/projects/rental-log.svg",
     inDevelopment: true,
   },
+  {
+    id: 4,
+    number: "04",
+    title: "DelFresno Automations",
+    subtitle: "Showcase de Automatizaciones — Casos con n8n + IA",
+    problem:
+      "Las PYMEs pierden horas en tareas repetitivas (facturación, atención, seguimiento) y no tienen tiempo ni equipo interno para automatizarlas.",
+    solution:
+      "Construí un sitio que documenta casos reales de automatización end-to-end con n8n, Claude API y APIs de mensajería. Cada caso muestra el flujo, el stack y el resultado concreto para el negocio.",
+    result:
+      "Plataforma deployada que funciona como portfolio comercial vivo de servicios de automation. Punto de entrada para consultas B2B y lead magnet para clientes nuevos.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    demo: "https://delfresno-automations.vercel.app",
+    github: "https://github.com/Gu1ll3rm04r13l/delfresno-automations",
+    image: "/projects/delfresno-automations.png",
+  },
+  {
+    id: 5,
+    number: "05",
+    title: "DentalAI — Sarah",
+    subtitle: "DEMO · Recepcionista Virtual con IA para Clínicas Dentales",
+    problem:
+      "Las clínicas dentales pierden leads fuera de horario y consumen tiempo del equipo respondiendo consultas frecuentes (turnos, precios, tratamientos) por WhatsApp y web.",
+    solution:
+      "Sarah es una recepcionista virtual con IA que agenda turnos, responde consultas y atiende pacientes 24/7 en español rioplatense. Construida con Next.js 14 + Groq (llama-3.3-70b-versatile) usando function calling para encadenar tools (verificar disponibilidad → agendar). Panel admin con chat en vivo, historial, gestión de turnos y configuración editable de la clínica. Estado persistido con Zustand + localStorage y archivos JSON con escritura atómica en backend.",
+    result:
+      "Demo navegable en producción con persona configurable, lista para mostrar la propuesta a clínicas reales. Base reusable para implementaciones a medida con datos de cada consultorio.",
+    tech: ["Next.js 14", "TypeScript", "Groq SDK", "llama-3.3-70b", "Zustand", "shadcn/ui", "Tailwind CSS", "Zod", "Framer Motion"],
+    demo: "https://dental-ai-pi.vercel.app/panel/chat",
+    github: "https://github.com/Gu1ll3rm04r13l/DentalAI",
+    image: "/projects/dental-ai.png",
+    isDemo: true,
+  },
 ];
 
 export const academicProjects = [
