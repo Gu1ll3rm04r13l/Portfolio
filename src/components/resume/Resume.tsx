@@ -1,15 +1,49 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { FiChevronDown } from "react-icons/fi";
 import { education, certifications } from "@/data";
 import { HiAcademicCap, HiBadgeCheck } from "react-icons/hi";
 
 type Cert = (typeof certifications)[number];
+type EduItem = (typeof education)[number] & { image?: string };
 
 export default function Resume() {
   const [activeCert, setActiveCert] = useState<Cert | null>(null);
+  const eduColRef = useRef<HTMLDivElement>(null);
+  const certScrollRef = useRef<HTMLDivElement>(null);
+  const [certMaxH, setCertMaxH] = useState<number | null>(null);
+  const [showScrollHint, setShowScrollHint] = useState(true);
+
+  useEffect(() => {
+    const sync = () => {
+      if (eduColRef.current) {
+        setCertMaxH(eduColRef.current.offsetHeight);
+      }
+    };
+    sync();
+    const ro = new ResizeObserver(sync);
+    if (eduColRef.current) ro.observe(eduColRef.current);
+    window.addEventListener("resize", sync);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", sync);
+    };
+  }, []);
+
+  useEffect(() => {
+    const el = certScrollRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 4;
+      setShowScrollHint(!atBottom);
+    };
+    onScroll();
+    el.addEventListener("scroll", onScroll);
+    return () => el.removeEventListener("scroll", onScroll);
+  }, [certMaxH]);
 
   return (
     <section id="educacion" className="section-padding px-6">
@@ -29,9 +63,9 @@ export default function Resume() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 items-start">
           {/* Education */}
-          <div className="flex flex-col gap-4">
+          <div ref={eduColRef} className="flex flex-col gap-4">
             <div className="flex items-center gap-2 mb-2">
               <HiAcademicCap className="text-violet-400" size={20} />
               <span className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
@@ -39,43 +73,71 @@ export default function Resume() {
               </span>
             </div>
 
-            {education.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="glass glass-hover rounded-2xl p-5"
-              >
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <div>
-                    <h3 className="font-semibold text-zinc-100">{item.title}</h3>
-                    <p className="text-violet-400 text-sm">{item.institution}</p>
-                  </div>
-                  <span className="text-xs text-zinc-500 whitespace-nowrap mt-1">
-                    {item.period}
-                  </span>
-                </div>
-                <p className="text-sm text-zinc-400 leading-relaxed mb-3">
-                  {item.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {item.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 rounded-full text-xs bg-white/5 text-zinc-400 border border-white/5"
-                    >
-                      {tag}
+            {(education as EduItem[]).map((item, i) => {
+              const hasImage = !!item.image;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  onClick={() =>
+                    hasImage &&
+                    setActiveCert({
+                      title: item.title,
+                      issuer: item.institution,
+                      id: item.period,
+                      color: "#8b5cf6",
+                      image: item.image as string,
+                    })
+                  }
+                  className={`glass rounded-2xl p-5 ${
+                    hasImage
+                      ? "cursor-pointer hover:border-violet-500/30 transition-all duration-200"
+                      : "glass-hover"
+                  }`}
+                  style={
+                    hasImage
+                      ? { borderColor: "rgba(139,92,246,0.15)" }
+                      : undefined
+                  }
+                >
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <div>
+                      <h3 className="font-semibold text-zinc-100">{item.title}</h3>
+                      <p className="text-violet-400 text-sm">{item.institution}</p>
+                    </div>
+                    <span className="text-xs text-zinc-500 whitespace-nowrap mt-1">
+                      {item.period}
                     </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                  </div>
+                  <p className="text-sm text-zinc-400 leading-relaxed mb-3">
+                    {item.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 rounded-full text-xs bg-white/5 text-zinc-400 border border-white/5"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  {hasImage && (
+                    <p className="text-violet-500/60 text-xs mt-3 flex items-center gap-1">
+                      <span className="w-1 h-1 rounded-full bg-violet-500/60 inline-block" />
+                      Click para ver diploma
+                    </p>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Certifications */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 min-h-0">
             <div className="flex items-center gap-2 mb-2">
               <HiBadgeCheck className="text-violet-400" size={20} />
               <span className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
@@ -83,6 +145,12 @@ export default function Resume() {
               </span>
             </div>
 
+            <div className="relative">
+              <div
+                ref={certScrollRef}
+                className="flex flex-col gap-4 overflow-y-auto pr-2 cert-scroll"
+                style={certMaxH ? { maxHeight: certMaxH } : undefined}
+              >
             {certifications.map((cert, i) => (
               <motion.div
                 key={i}
@@ -125,7 +193,28 @@ export default function Resume() {
                 </div>
               </motion.div>
             ))}
-
+              </div>
+              <AnimatePresence>
+                {showScrollHint && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="pointer-events-none absolute bottom-0 left-0 right-2 h-16 bg-gradient-to-t from-[#09090b] via-[#09090b]/80 to-transparent flex items-end justify-center pb-2"
+                  >
+                    <motion.div
+                      animate={{ y: [0, 6, 0] }}
+                      transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                      className="flex items-center gap-1.5 text-violet-400 text-xs font-medium"
+                    >
+                      <span>Más certificaciones</span>
+                      <FiChevronDown size={14} />
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>

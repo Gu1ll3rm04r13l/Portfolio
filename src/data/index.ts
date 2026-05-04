@@ -239,6 +239,7 @@ export const education = [
     description:
       "Full-stack certified. Frontend y Backend services, IT & Agile tools. Actividades con MercadoLibre y Globant.",
     tags: ["React", "Node.js", "Java", "MySQL", "MongoDB", "Agile"],
+    image: "/certifications/DIploma CTD - Guillermo Ariel del Fresno.png",
   },
   {
     title: "Tecnicatura en Análisis de Sistemas",
@@ -252,13 +253,6 @@ export const education = [
 
 export const certifications = [
   {
-    title: "Scrum Foundation Professional Certificate",
-    issuer: "CertiProf",
-    id: "SFPC #90425039",
-    color: "#8b5cf6",
-    image: "/certifications/CertiProf.png",
-  },
-  {
     title: "Certified Tech Developer",
     issuer: "Digital House",
     id: "Diploma de finalización",
@@ -266,11 +260,32 @@ export const certifications = [
     image: "/certifications/DIploma CTD - Guillermo Ariel del Fresno.png",
   },
   {
+    title: "EF SET English Certificate — C1 Advanced",
+    issuer: "EF SET",
+    id: "68/100 · cert.efset.org/eDp7zg",
+    color: "#8b5cf6",
+    image: "/certifications/EF SET Certificate.png",
+  },
+  {
+    title: "Scrum Foundation Professional Certificate",
+    issuer: "CertiProf",
+    id: "SFPC #90425039",
+    color: "#8b5cf6",
+    image: "/certifications/CertiProf.png",
+  },
+  {
     title: "Desarrollo de Software con Inteligencia Artificial",
-    issuer: "Capacitación Profesional",
+    issuer: "BIG school",
     id: "",
     color: "#8b5cf6",
     image: "/certifications/Desarrollo con IA.png",
+  },
+  {
+    title: "Ciberseguridad y Hacking Ético",
+    issuer: "BIG school",
+    id: "6 horas · 10/04/2026",
+    color: "#8b5cf6",
+    image: "/certifications/hacking_etico.png",
   },
 ];
 
