@@ -5,10 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
 import { projects, academicProjects } from "@/data";
 import ProjectCard from "./ProjectCard";
+import ProjectModal from "./ProjectModal";
 import AcademicProjectCard from "./AcademicProjectCard";
+
+type Project = (typeof projects)[number];
 
 export default function Work() {
   const [showAcademic, setShowAcademic] = useState(false);
+  const [active, setActive] = useState<Project | null>(null);
 
   return (
     <section id="proyectos" className="section-padding px-6">
@@ -28,12 +32,19 @@ export default function Work() {
           </h2>
         </motion.div>
 
-        {/* Featured projects */}
-        <div className="flex flex-col gap-24">
+        {/* Projects grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={i}
+              onOpen={(p) => setActive(p as Project)}
+            />
           ))}
         </div>
+
+        <ProjectModal project={active} onClose={() => setActive(null)} />
 
         {/* Academic CTA */}
         <div className="flex justify-center mt-20">

@@ -108,8 +108,25 @@ export const services = [
 
 export const projects = [
   {
-    id: 1,
+    id: 0,
     number: "01",
+    title: "ReservIA",
+    subtitle: "Sistema de Turnos por WhatsApp con IA",
+    problem:
+      "Clínicas, peluquerías y consultorios pierden turnos por no responder a tiempo. Atender WhatsApp manual 24/7 es imposible y suma carga al personal. Cada ausencia sin recordatorio es facturación perdida.",
+    solution:
+      "Plataforma SaaS que automatiza la agenda con un bot de WhatsApp impulsado por IA. Stack: Next.js para la landing comercial (reservia.tech), n8n self-hosted (n8n.reservia.tech) orquestando Claude API + WhatsApp Cloud API sobre VPS propio con dominio dedicado. El bot reserva, confirma y recuerda turnos sin sumar personal ni cambiar el sistema actual del cliente.",
+    result:
+      "MVP en producción con infraestructura propia (VPS + dominio + n8n self-hosted). Landing capturando leads B2B. Demo del bot navegable. Reduce ausencias estimado -40% con recordatorios automáticos y respuesta <1 min las 24hs.",
+    tech: ["Next.js", "n8n", "Claude API", "WhatsApp Cloud API", "VPS Hostinger", "Docker", "TypeScript"],
+    demo: "https://reservia.tech",
+    github: "https://github.com/Gu1ll3rm04r13l",
+    image: "/projects/reservia.png",
+    inDevelopment: true,
+  },
+  {
+    id: 1,
+    number: "02",
     title: "TBS Guild",
     subtitle: "Guild Management Platform — World of Warcraft",
     problem:
@@ -124,42 +141,8 @@ export const projects = [
     image: "/projects/tbs-guild.png",
   },
   {
-    id: 2,
-    number: "02",
-    title: "Mítico",
-    subtitle: "Sitio Web — Pizza & Cocktail Bar",
-    problem:
-      "Un establecimiento local de pizzas artesanales y cócteles necesitaba presencia digital para mostrar su marca y conectar con clientes.",
-    solution:
-      "Diseñé y desarrollé una landing page responsive con identidad de marca, showcase del menú y datos de contacto integrados.",
-    result:
-      "Sitio en producción para un negocio real en Miramar, Argentina. Activo y en uso por el establecimiento.",
-    tech: ["React", "Tailwind CSS", "Vercel"],
-    demo: "https://mitico-theta.vercel.app",
-    github: "https://github.com/Gu1ll3rm04r13l/Mitico",
-    image: "/projects/mitico.png",
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "Rental-Log",
-    subtitle: "Sistema de Automatización — Gestión de Alquiler",
-    problem:
-      "La gestión manual de un departamento en alquiler implica tareas repetitivas todos los meses: recibir facturas de servicios (luz, gas, agua), reenviarlas a la inquilina, esperar el comprobante de pago, y registrar todo en una planilla. Es propenso a errores y consume tiempo.",
-    solution:
-      "Dos workflows en n8n orquestan Gmail, Claude API y Google Sheets para automatizar el ciclo completo. El primer workflow detecta facturas entrantes de EDEA, Camuzzi y Obras Sanitarias, extrae los datos con Claude (proveedor, monto, vencimiento, período), las registra como PENDIENTE en Sheets y reenvía un email HTML a la inquilina con el resumen. El segundo workflow detecta comprobantes de pago entrantes, los lee con Claude Vision (PDF o imagen), matchea con la factura correspondiente y actualiza el estado a PAGADO con todos los datos del pago.",
-    result:
-      "Sistema en desarrollo activo. Elimina la gestión manual mensual de facturas y pagos. Arquitectura modular con workflows versionados y prompts separados por responsabilidad.",
-    tech: ["n8n", "Claude API", "Claude Vision", "Gmail API", "Google Sheets", "OAuth2"],
-    demo: "https://github.com/Gu1ll3rm04r13l/catamarca#readme",
-    demoLabel: "Ver README",
-    github: "https://github.com/Gu1ll3rm04r13l/catamarca",
-    image: "/projects/rental-log.svg",
-    inDevelopment: true,
-  },
-  {
     id: 4,
-    number: "04",
+    number: "03",
     title: "DelFresno Automations",
     subtitle: "Showcase de Automatizaciones — Casos con n8n + IA",
     problem:
@@ -175,7 +158,7 @@ export const projects = [
   },
   {
     id: 5,
-    number: "05",
+    number: "04",
     title: "DentalAI — Sarah",
     subtitle: "DEMO · Recepcionista Virtual con IA para Clínicas Dentales",
     problem:
@@ -189,6 +172,40 @@ export const projects = [
     github: "https://github.com/Gu1ll3rm04r13l/DentalAI",
     image: "/projects/dental-ai.png",
     isDemo: true,
+  },
+  {
+    id: 2,
+    number: "05",
+    title: "Mítico",
+    subtitle: "Sitio Web — Pizza & Cocktail Bar",
+    problem:
+      "Un establecimiento local de pizzas artesanales y cócteles necesitaba presencia digital para mostrar su marca y conectar con clientes.",
+    solution:
+      "Diseñé y desarrollé una landing page responsive con identidad de marca, showcase del menú y datos de contacto integrados.",
+    result:
+      "Sitio en producción para un negocio real en Miramar, Argentina. Activo y en uso por el establecimiento.",
+    tech: ["React", "Tailwind CSS", "Vercel"],
+    demo: "https://mitico-theta.vercel.app",
+    github: "https://github.com/Gu1ll3rm04r13l/Mitico",
+    image: "/projects/mitico.png",
+  },
+  {
+    id: 3,
+    number: "06",
+    title: "Rental-Log",
+    subtitle: "Sistema de Automatización — Gestión de Alquiler",
+    problem:
+      "La gestión manual de un departamento en alquiler implica tareas repetitivas todos los meses: recibir facturas de servicios (luz, gas, agua), reenviarlas a la inquilina, esperar el comprobante de pago, y registrar todo en una planilla. Es propenso a errores y consume tiempo.",
+    solution:
+      "Dos workflows en n8n orquestan Gmail, Claude API y Google Sheets para automatizar el ciclo completo. El primer workflow detecta facturas entrantes de EDEA, Camuzzi y Obras Sanitarias, extrae los datos con Claude (proveedor, monto, vencimiento, período), las registra como PENDIENTE en Sheets y reenvía un email HTML a la inquilina con el resumen. El segundo workflow detecta comprobantes de pago entrantes, los lee con Claude Vision (PDF o imagen), matchea con la factura correspondiente y actualiza el estado a PAGADO con todos los datos del pago.",
+    result:
+      "Sistema en desarrollo activo. Elimina la gestión manual mensual de facturas y pagos. Arquitectura modular con workflows versionados y prompts separados por responsabilidad.",
+    tech: ["n8n", "Claude API", "Claude Vision", "Gmail API", "Google Sheets", "OAuth2"],
+    demo: "https://github.com/Gu1ll3rm04r13l/catamarca#readme",
+    demoLabel: "Ver README",
+    github: "https://github.com/Gu1ll3rm04r13l/catamarca",
+    image: "/projects/rental-log.svg",
+    inDevelopment: true,
   },
 ];
 
