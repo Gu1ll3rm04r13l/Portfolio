@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiExternalLink, FiArrowUpRight } from "react-icons/fi";
 
-interface Project {
+export interface Project {
   id: number;
   number: string;
   title: string;

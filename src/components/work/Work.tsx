@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
 import { projects, academicProjects } from "@/data";
-import ProjectCard from "./ProjectCard";
+import ProjectCarousel from "./ProjectCarousel";
 import ProjectModal from "./ProjectModal";
 import AcademicProjectCard from "./AcademicProjectCard";
 
@@ -32,17 +32,8 @@ export default function Work() {
           </h2>
         </motion.div>
 
-        {/* Projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, i) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              index={i}
-              onOpen={(p) => setActive(p as Project)}
-            />
-          ))}
-        </div>
+        {/* Projects coverflow */}
+        <ProjectCarousel onOpen={(p) => setActive(p as Project)} />
 
         <ProjectModal project={active} onClose={() => setActive(null)} />
 
