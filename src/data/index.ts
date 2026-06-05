@@ -125,20 +125,20 @@ export const projects = [
     inDevelopment: true,
   },
   {
-    id: 1,
+    id: 2,
     number: "02",
-    title: "TBS Guild",
-    subtitle: "Guild Management Platform — World of Warcraft",
+    title: "Mítico - Carta",
+    subtitle: "Sitio Web — Pizza & Cocktail Bar",
     problem:
-      "Una guild de raiding Mythic necesitaba un centro de comando para gestionar su roster, rastrear progreso y reclutar jugadores — todo en tiempo real.",
+      "Un establecimiento local de pizzas artesanales y cócteles necesitaba presencia digital para mostrar su marca y conectar con clientes.",
     solution:
-      "Desarrollé una aplicación full-stack en Next.js integrando 4 APIs externas: Blizzard, Warcraft Logs, Raider.io y WoW Render Services. Dashboard con datos en vivo, sistema de postulaciones y rankings de servidor.",
+      "Diseñé y desarrollé una landing page responsive con identidad de marca, showcase del menú y datos de contacto integrados.",
     result:
-      "Plataforma activa usada por la guild. Tracking en vivo de jefes, historial de kills y portal de reclutamiento con evaluación en 48hs. Ranking #7 en servidor Ragnaros US.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Blizzard API", "Warcraft Logs", "Raider.io"],
-    demo: "https://tbs-guild.vercel.app",
-    github: "https://github.com/Gu1ll3rm04r13l/tbs-guild",
-    image: "/projects/tbs-guild.png",
+      "Sitio en producción para un negocio real en Miramar, Argentina. Activo y en uso por el establecimiento.",
+    tech: ["React", "Tailwind CSS", "Vercel"],
+    demo: "https://mitico-carta.vercel.app",
+    github: "https://github.com/Gu1ll3rm04r13l/Mitico",
+    image: "/projects/mitico.png",
   },
   {
     id: 4,
@@ -157,37 +157,36 @@ export const projects = [
     image: "/projects/delfresno-automations.png",
   },
   {
-    id: 5,
+    id: 6,
     number: "04",
-    title: "DentalAI — Sarah",
-    subtitle: "DEMO · Recepcionista Virtual con IA para Clínicas Dentales",
+    title: "Mítico - Ficha",
+    subtitle: "PWA de Fichaje y Asistencia — Pizza & Cocktail Bar",
     problem:
-      "Las clínicas dentales pierden leads fuera de horario y consumen tiempo del equipo respondiendo consultas frecuentes (turnos, precios, tratamientos) por WhatsApp y web.",
+      "Mítico controlaba la asistencia del personal y liquidaba sueldos a mano: sin forma de verificar quién fichó ni a qué hora. Propenso a errores, papeles perdidos y reclamos por horas mal cargadas.",
     solution:
-      "Sarah es una recepcionista virtual con IA que agenda turnos, responde consultas y atiende pacientes 24/7 en español rioplatense. Construida con Next.js 14 + Groq (llama-3.3-70b-versatile) usando function calling para encadenar tools (verificar disponibilidad → agendar). Panel admin con chat en vivo, historial, gestión de turnos y configuración editable de la clínica. Estado persistido con Zustand + localStorage y archivos JSON con escritura atómica en backend.",
+      "PWA de control de asistencia instalable en el celular. El personal ficha entrada y salida con una selfie de verificación y distingue jornada completa de horas extra. Panel admin para gestionar empleados, configurar sueldos (jornal, valor hora, overrides) y generar liquidaciones con respaldo fotográfico. Acceso por roles (admin / supervisor / staff) y portal donde cada empleado ve su propio historial. Stack: Next.js 15 (App Router), TypeScript estricto, Supabase (Postgres + Auth + Storage + RLS), Tailwind v4 y PWA con Serwist.",
     result:
-      "Demo navegable en producción con persona configurable, lista para mostrar la propuesta a clínicas reales. Base reusable para implementaciones a medida con datos de cada consultorio.",
-    tech: ["Next.js 14", "TypeScript", "Groq SDK", "llama-3.3-70b", "Zustand", "shadcn/ui", "Tailwind CSS", "Zod", "Framer Motion"],
-    demo: "https://dental-ai-pi.vercel.app/panel/chat",
-    github: "https://github.com/Gu1ll3rm04r13l/DentalAI",
-    image: "/projects/dental-ai.png",
-    isDemo: true,
+      "App en producción para un negocio real en Miramar. Reemplaza la planilla manual por fichaje verificado con foto, liquidación automática según el esquema de cada empleado e historial transparente. Instalable sin pasar por tiendas de apps.",
+    tech: ["Next.js 15", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "PWA / Serwist", "Vercel"],
+    demo: "https://mitico-ficha.vercel.app",
+    github: "https://github.com/Gu1ll3rm04r13l/Mitico-Ficha",
+    image: "/projects/mitico-ficha.png",
   },
   {
-    id: 2,
+    id: 1,
     number: "05",
-    title: "Mítico",
-    subtitle: "Sitio Web — Pizza & Cocktail Bar",
+    title: "TBS Guild",
+    subtitle: "Guild Management Platform — World of Warcraft",
     problem:
-      "Un establecimiento local de pizzas artesanales y cócteles necesitaba presencia digital para mostrar su marca y conectar con clientes.",
+      "Una guild de raiding Mythic necesitaba un centro de comando para gestionar su roster, rastrear progreso y reclutar jugadores — todo en tiempo real.",
     solution:
-      "Diseñé y desarrollé una landing page responsive con identidad de marca, showcase del menú y datos de contacto integrados.",
+      "Desarrollé una aplicación full-stack en Next.js integrando 4 APIs externas: Blizzard, Warcraft Logs, Raider.io y WoW Render Services. Dashboard con datos en vivo, sistema de postulaciones y rankings de servidor.",
     result:
-      "Sitio en producción para un negocio real en Miramar, Argentina. Activo y en uso por el establecimiento.",
-    tech: ["React", "Tailwind CSS", "Vercel"],
-    demo: "https://mitico-theta.vercel.app",
-    github: "https://github.com/Gu1ll3rm04r13l/Mitico",
-    image: "/projects/mitico.png",
+      "Plataforma activa usada por la guild. Tracking en vivo de jefes, historial de kills y portal de reclutamiento con evaluación en 48hs. Ranking #7 en servidor Ragnaros US.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Blizzard API", "Warcraft Logs", "Raider.io"],
+    demo: "https://tbs-guild.vercel.app",
+    github: "https://github.com/Gu1ll3rm04r13l/tbs-guild",
+    image: "/projects/tbs-guild.png",
   },
   {
     id: 3,
@@ -206,6 +205,23 @@ export const projects = [
     github: "https://github.com/Gu1ll3rm04r13l/catamarca",
     image: "/projects/rental-log.svg",
     inDevelopment: true,
+  },
+  {
+    id: 5,
+    number: "07",
+    title: "DentalAI — Sarah",
+    subtitle: "DEMO · Recepcionista Virtual con IA para Clínicas Dentales",
+    problem:
+      "Las clínicas dentales pierden leads fuera de horario y consumen tiempo del equipo respondiendo consultas frecuentes (turnos, precios, tratamientos) por WhatsApp y web.",
+    solution:
+      "Sarah es una recepcionista virtual con IA que agenda turnos, responde consultas y atiende pacientes 24/7 en español rioplatense. Construida con Next.js 14 + Groq (llama-3.3-70b-versatile) usando function calling para encadenar tools (verificar disponibilidad → agendar). Panel admin con chat en vivo, historial, gestión de turnos y configuración editable de la clínica. Estado persistido con Zustand + localStorage y archivos JSON con escritura atómica en backend.",
+    result:
+      "Demo navegable en producción con persona configurable, lista para mostrar la propuesta a clínicas reales. Base reusable para implementaciones a medida con datos de cada consultorio.",
+    tech: ["Next.js 14", "TypeScript", "Groq SDK", "llama-3.3-70b", "Zustand", "shadcn/ui", "Tailwind CSS", "Zod", "Framer Motion"],
+    demo: "https://dental-ai-pi.vercel.app/panel/chat",
+    github: "https://github.com/Gu1ll3rm04r13l/DentalAI",
+    image: "/projects/dental-ai.png",
+    isDemo: true,
   },
 ];
 
