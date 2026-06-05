@@ -6,12 +6,10 @@ import Services from "@/components/services/Services";
 import Skills from "@/components/skills/Skills";
 import Contact from "@/components/contact/Contact";
 import Footer from "@/components/footer/Footer";
-import GridBackground from "@/components/GridBackground";
 
 export default function Home() {
   return (
     <>
-      <GridBackground />
       <main className="relative">
         <NavBar />
         <Hero />
