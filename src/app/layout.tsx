@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
+// Self-hosted Inter (variable) — no Google Fonts fetch, works offline.
+const inter = localFont({
+  src: "./fonts/InterVariable.woff2",
   variable: "--font-inter",
   display: "swap",
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
